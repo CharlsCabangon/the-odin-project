@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="tables.css">
+    <title>Tables</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>hi</td>
+            <td>ho</td>
+            <td>he</td>
+            <td>ha</td>
+            <td>hu</td>
+        </tr>
+        <tr>
+            <td>hi</td>
+            <td>ho</td>
+            <td>he</td>
+            <td>ha</td>
+            <td>hu</td>
+            <td>haha</td>
+        </tr>
+    </table>
+
+    <br>
+
+    <table>
+      <tr>
+        <th colspan="2">Animals</th>
+      </tr>
+
+      <tr>
+        <th colspan="2">Hippopotamus</th>
+      </tr>
+
+      <tr>
+        <th rowspan="3">Horse</th>
+        <td>Mare</td>
+      </tr>
+      <tr>
+        <td>Stallion</td>
+      </tr>
+      <tr>
+        <td>Stallion</td>
+      </tr>
+
+      <tr>
+        <th colspan="2">Crocodile</th>
+      </tr>
+
+      <tr>
+        <th rowspan="3">Chicken</th>
+        <td>Hen</td>
+      </tr>
+      <tr>
+        <td>Rooster</td>
+      </tr>
+    </table>
+
+    <br>
+
+    <table border="1">
+      <caption>this is a sample</caption>
+      <colgroup>
+        <col style="background-color: lightpink;">
+        <col style="background-color: lightgreen;">
+        <col style="background-color: lightcyan;">
+      </colgroup>
+      <tr>
+        <th>Header 1</th>
+        <th>Header 2</th>
+        <th>Header 3</th>
+      </tr>
+      <tr>
+        <td>Data 1</td>
+        <td>Data 2</td>
+        <td>Data 3</td>
+      </tr>
+    </table>
+    
+    <br>
+
+    <h1>My spending record</h1>
+
+    <table>
+
+      <caption>How I chose to spend my money</caption>
+
+      <thead>
+          <tr>
+            <th scope="col">Purchase</th>
+            <th scope="col">Location</th>
+            <th scope="col">Date</th>
+            <th scope="col">Evaluation</th>
+            <th scope="col">Cost</th>
+          </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <th scope="row">Haircut</th>
+          <td>Hairdresser</td>
+          <td>12/09</td>
+          <td>Great idea</td>
+          <td>30</td>
+        </tr>
+        <tr>
+          <th scope="row">Lasagna</th>
+          <td>Restaurant</td>
+          <td>12/09</td>
+          <td>Regrets</td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <th scope="row">Shoes</th>
+          <td>Shoeshop</td>
+          <td>12/09</td>
+          <td>Regrets</td>
+          <td>65</td>
+        </tr>
+        <tr>
+          <th scope="row">Toothpaste</th>
+          <td>Supermarket</td>
+          <td>12/09</td>
+          <td>Regrets</td>
+          <td>5</td>
+        </tr>
+      </tbody>
+
+    </table>
+
+    <br>
+
+    <table>
+
+      <caption>Multiple grouped columns</caption>
+
+      <thead>
+        <tr>
+          <th colspan="3" scope="colgroup">Clothes</th>
+        </tr>
+        <tr>
+          <th scope="col">Trousers</th>
+          <th scope="col">Skirts</th> 
+          <th scope="col">Dresses</th>
+        </tr>
+      </thead>
+
+    </table>
+
+    <br>
+
+    <table>
+      <caption>Multiple grouped rows</caption>
+
+      <tr>
+        <th rowspan="2" scope="rowgroup">The Netherlands</th>
+        <th scope="row">Amsterdam</th>
+        <td>89</td>
+        <td>34</td>
+        <td>69</td>
+      </tr>
+      <tr>
+        <th scope="row">Utrecht</th>
+        <td>80</td>
+        <td>12</td>
+        <td>43</td>
+      </tr>
+      
+    </table>
+
+    <br>
+
+    <table>
+
+      <thead>
+        <tr>
+          <th id="clothes" colspan="3">Clothes</th>
+        </tr>
+        <tr>
+          <th id="trousers" headers="clothes">Trousers</th>
+          <th id="skirts" headers="clothes">Skirts</th>
+          <th id="dresses" headers="clothes">Dresses</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <th id="belgium" rowspan="3">Belgium</th>
+          <th id="antwerp" headers="belgium">Antwerp</th>
+          <td headers="antwerp belgium clothes trousers">56</td>
+          <td headers="antwerp belgium clothes skirts">22</td>
+          <td headers="antwerp belgium clothes dresses">43</td>
+        </tr>
+      </tbody>
+      
+    </table>
+
+</body>
+</html>
