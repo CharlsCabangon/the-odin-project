@@ -1,0 +1,32 @@
+.header-container {
+    padding-top: 30px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    width: 1440px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header-links {
+    width: 300px;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
