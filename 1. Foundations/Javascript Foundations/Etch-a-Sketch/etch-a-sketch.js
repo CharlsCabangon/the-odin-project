@@ -1,7 +1,7 @@
 
 const container = document.querySelector(".container");
 
-function createRow(columnCount, rowCount) {
+function createDivs(columnCount, rowCount) {
     for(let i = 0; i < columnCount; i++) {
         let column = document.createElement("div");
         column.classList.add("column");
@@ -10,9 +10,42 @@ function createRow(columnCount, rowCount) {
             let row = document.createElement("div");
             row.classList.add("row");
             column.appendChild(row);
+
+            row.addEventListener("mouseover", () => {
+                row.style.backgroundColor = "#000000";
+            });
         }
         container.appendChild(column);
     }
 }
 
-createRow(100, 16);
+function setColumn() {
+    while(true) {
+        columnCount = Number(prompt("Set column number:"));
+
+        if(columnCount > 100) {
+            alert("Invalid! Max is 100");
+            continue;
+        }
+        else {
+            return columnCount;
+        }
+    }
+}
+
+function setRow() {
+    while(true) {
+        rowCount = Number(prompt("Set row number:"));
+
+        if(rowCount > 100) {
+            alert("Invalid! Max is 100");
+            continue;
+        }
+        else {
+            return rowCount;
+        }
+    }
+}
+
+createDivs(setColumn(), setRow());
+

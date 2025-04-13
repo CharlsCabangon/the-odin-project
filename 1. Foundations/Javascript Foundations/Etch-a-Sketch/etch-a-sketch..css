@@ -1,6 +1,5 @@
 .container {
     display: flex;
-    flex-direction: column;
     width: fit-content;
     border: 2px solid black;
 }
@@ -8,6 +7,7 @@
 .column {
     
     display: flex;
+    flex-direction: column;
 }
 
 .row {
@@ -15,3 +15,7 @@
     height: 20px;
     border: 1px solid black;
 }
+
+/* .row:hover {
+    background-color: aqua;
+} */
