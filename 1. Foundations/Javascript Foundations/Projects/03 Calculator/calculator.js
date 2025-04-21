@@ -15,14 +15,20 @@ let btn6 = document.getElementById("btn-6");
 let btn7 = document.getElementById("btn-7");
 let btn8 = document.getElementById("btn-8");
 let btn9 = document.getElementById("btn-9");
+let btnDot = document.getElementById("btn-dot");
 
 // Button variables for operators
 let btnAdd = document.getElementById("btn-add");
 let btnSubtract = document.getElementById("btn-subtract");
 let btnMultiply = document.getElementById("btn-multiply");
 let btnDivide = document.getElementById("btn-divide");
+let btnModulo = document.getElementById("btn-modulo")
 let btnEquals = document.getElementById("btn-equals");
 
+// Button variables for functions
+let btnAC = document.getElementById("btn-ac");
+let btnC = document.getElementById("btn-c");
+let btnBack = document.getElementById("btn-back");
 
 // Button event listeners for numbers
 btn0.addEventListener('click', () => {
@@ -156,6 +162,19 @@ btn9.addEventListener('click', () => {
 	}
 })
 
+btnDot.addEventListener('click', () => {
+	if (!operator) {
+		firstNumber.push(".");
+		
+		calcDisplay.innerHTML += ".";
+	}
+	else {
+		secondNumber.push(".");
+
+		calcDisplay.innerHTML += ".";
+	}
+})
+
 // Button event listeners for operators
 btnAdd.addEventListener('click', () => {
 	if (!operator) {
@@ -192,15 +211,53 @@ btnDivide.addEventListener('click', () => {
 	}
 })
 
+btnModulo.addEventListener('click', () => {
+	if (!operator) {
+		operator = "%";
+
+		calcDisplay.innerHTML += "%";
+	}
+})
+
+// Button event listeners for functions
+btnAC.addEventListener('click', () => {
+	firstNumber = [];
+	secondNumber = [];
+	operator = null;
+
+	// console.log(firstNumber);
+	// console.log(secondNumber);
+	// console.log(operator);
+
+	calcDisplay.innerHTML = "";
+})
+
+btnC.addEventListener('click', () => {
+	if (!operator) {
+		firstNumber.pop();
+		console.log("First number: " + firstNumber);
+	}
+	else if (secondNumber.length > 0) {
+		secondNumber.pop();
+		console.log("Second number: " + secondNumber);
+	}
+	else {
+		operator = null;
+		console.log("Operator: " + operator);
+	}
+
+	calcDisplay.innerHTML = calcDisplay.innerHTML.slice(0, -1);
+})
+
 // FUNCTIONS!!!
 function firstOperand() {
-	let firstOperand = parseInt(firstNumber.join(""));
+	let firstOperand = parseFloat(firstNumber.join(""));
 
 	return firstOperand;
 }
 
 function secondOperand() {
-	let secondOperand = parseInt(secondNumber.join(""));
+	let secondOperand = parseFloat(secondNumber.join(""));
 
 	return secondOperand;
 }
@@ -221,6 +278,10 @@ function divide(a, b) {
 	return a / b;
 }
 
+function modulo(a, b) {
+	return a % b;
+}
+
 btnEquals.addEventListener('click', () => {
 	if (operator === "+") {
 		let sum = add(firstOperand(), secondOperand());
@@ -228,7 +289,7 @@ btnEquals.addEventListener('click', () => {
 		calcDisplay.innerHTML = sum;
 		firstNumber = [sum];
 		secondNumber = [];
-		operator = "";
+		operator = null;
 	}
 	else if (operator === "-") {
 		let difference = subtract(firstOperand(), secondOperand());
@@ -236,7 +297,7 @@ btnEquals.addEventListener('click', () => {
 		calcDisplay.innerHTML = difference;
 		firstNumber = [difference];
 		secondNumber = [];
-		operator = "";
+		operator = null;
 	}
 	else if (operator === "x") {
 		let product = multiply(firstOperand(), secondOperand())
@@ -244,7 +305,7 @@ btnEquals.addEventListener('click', () => {
 		calcDisplay.innerHTML = product;
 		firstNumber = [product];
 		secondNumber = [];
-		operator = "";
+		operator = null;
 	}
 	else if (operator === "÷") {
 		let quotient = divide(firstOperand(), secondOperand());
@@ -252,7 +313,15 @@ btnEquals.addEventListener('click', () => {
 		calcDisplay.innerHTML = quotient;
 		firstNumber = [quotient];
 		secondNumber = [];
-		operator = "";
+		operator = null;
+	}
+	else if (operator === "%") {
+		let remainder = modulo(firstOperand(), secondOperand());
+
+		calcDisplay.innerHTML = remainder;
+		firstNumber = [remainder];
+		secondNumber = [];
+		operator = null;
 	}
 })
 

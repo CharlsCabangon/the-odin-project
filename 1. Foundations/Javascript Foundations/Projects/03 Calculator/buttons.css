@@ -1,0 +1,26 @@
+button {
+    width: 65px;
+    height: 65px;
+    font-size: 25px;
+    border: none;
+    border-radius: 35px;
+}
+
+.btn-func {
+    background-color: #D4D4D2;
+
+}
+
+.btn-operator {
+    background-color: #FF9500;
+}
+
+.btn-number {
+    background-color: white;
+}
+
+.btn-equals {
+    width: 130px;
+    height: 65px;
+    background-color: #D4D4D;
+}
