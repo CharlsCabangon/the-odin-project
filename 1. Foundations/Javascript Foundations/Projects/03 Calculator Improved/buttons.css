@@ -26,3 +26,7 @@ button {
     height: 65px;
     background-color: #666666;
 }
+
+.btn-dot {
+    background-color: #3D3D3D;
+}

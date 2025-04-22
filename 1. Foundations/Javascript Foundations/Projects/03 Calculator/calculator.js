@@ -1,3 +1,6 @@
+
+// PRACTICE DRY (DON'T REPEAT YOURSELF) IMPROVE CODE!!!
+
 let firstNumber = [];
 let secondNumber = [];
 let operator;

@@ -1,0 +1,83 @@
+ BEGIN Calculator Program
+
+1. Initialize `calculatorState` object:
+    - firstNumber: NULL
+    - secondNumber: NULL
+    - operator: NULL
+    - isSecondNumberActive: FALSE
+
+2. Fetch `calcDisplay` element from the DOM.
+
+3. Define `handleNumber(number)`:
+    - IF isSecondNumberActive is FALSE:
+        - Append the input `number` to firstNumber.
+        - Update display with firstNumber.
+    - ELSE:
+        - Append the input `number` to secondNumber.
+        - Update display with "firstNumber operator secondNumber".
+
+4. Define `handleOperator(operator)`:
+    - IF firstNumber is NOT NULL AND isSecondNumberActive is FALSE:
+        - Assign `operator` to calculatorState.
+        - Set isSecondNumberActive to TRUE.
+        - Update display with "firstNumber operator".
+
+5. Define `handleEquals()`:
+    - IF firstNumber, secondNumber, and operator are NOT NULL:
+        - Parse firstNumber and secondNumber into floats.
+        - Perform calculation based on the operator:
+            - "+" → Add numbers
+            - "-" → Subtract numbers
+            - "x" → Multiply numbers
+            - "÷" → Divide numbers (handle division by zero)
+            - "%" → Modulo operation
+        - Update the display with the result.
+        - Reset calculatorState:
+            - Set firstNumber to result.
+            - Clear secondNumber and operator.
+            - Set isSecondNumberActive to FALSE.
+
+6. Define `resetState(result = NULL)`:
+    - Set firstNumber to result (or NULL if not provided).
+    - Clear secondNumber and operator.
+    - Set isSecondNumberActive to FALSE.
+
+7. Define `calculate(a, b, operator)`:
+    - Perform operation based on the operator:
+        - "+" → Return addition of a and b.
+        - "-" → Return subtraction of b from a.
+        - "x" → Return multiplication of a and b.
+        - "÷" → IF b is 0, return "Error", ELSE divide a by b.
+        - "%" → Return modulo of a and b.
+
+8. Define `updateDisplay(content)`:
+    - Set the textContent of calcDisplay to `content`.
+
+9. Add dynamic event listeners for number buttons:
+    - Fetch all buttons with class `.btn-number`.
+    - FOR each button:
+        - Add click event listener to call `handleNumber(button's text)`.
+
+10. Add dynamic event listeners for operator buttons:
+    - Fetch all buttons with class `.btn-operator`.
+    - FOR each button:
+        - Add click event listener to call `handleOperator(button's text)`.
+
+11. Add event listener for "equals" button:
+    - Call `handleEquals()` on click.
+
+12. Add event listener for "AC" (All Clear) button:
+    - Call `resetState()` and clear the display.
+
+13. Add event listener for "C" (Clear last input) button:
+    - IF isSecondNumberActive is FALSE:
+        - Remove the last character from firstNumber.
+        - Update display with firstNumber.
+    - ELSE IF secondNumber is NOT NULL:
+        - Remove the last character from secondNumber.
+        - Update display with "firstNumber operator secondNumber".
+    - ELSE:
+        - Clear operator and set isSecondNumberActive to FALSE.
+        - Update display with firstNumber.
+
+END Calculator Program
