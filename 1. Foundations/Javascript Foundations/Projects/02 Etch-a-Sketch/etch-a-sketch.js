@@ -22,7 +22,6 @@ function generateGrid(rows, cols) {
             createCol.classList.add("col");
             createRow.appendChild(createCol);
         }
-    
         gridCanvas.appendChild(createRow);
     }    
 }
@@ -30,8 +29,7 @@ function generateGrid(rows, cols) {
 document.getElementById("btn-generate-grid").addEventListener('click', () => {
     generateGrid(parseInt(getRows()), parseInt(getCols()));
 
-    // let row = parseInt(getCols());
-    // let col = parseInt(getRows());
-    // console.log(`${row} & ${col} ${typeof row}`);
+    inputRows.value = '';
+    inputCols.value = '';
 })
 
