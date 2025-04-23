@@ -1,51 +1,37 @@
 
-const container = document.querySelector(".container");
+const inputRows = document.getElementById("input-rows");
+const inputCols = document.getElementById("input-cols");
 
-function createDivs(columnCount, rowCount) {
-    for(let i = 0; i < columnCount; i++) {
-        let column = document.createElement("div");
-        column.classList.add("column");
+const gridCanvas = document.getElementById("grid-canvas");
 
-        for(let j = 0; j < rowCount; j++) {
-            let row = document.createElement("div");
-            row.classList.add("row");
-            column.appendChild(row);
-
-            row.addEventListener("mouseover", () => {
-                row.style.backgroundColor = "#000000";
-            });
-        }
-        container.appendChild(column);
-    }
+function getRows() {
+    return inputRows.value;
 }
 
-function setColumn() {
-    while(true) {
-        columnCount = Number(prompt("Set column number:"));
-
-        if(columnCount > 100) {
-            alert("Invalid! Max is 100");
-            continue;
-        }
-        else {
-            return columnCount;
-        }
-    }
+function getCols() {
+    return inputCols.value;
 }
 
-function setRow() {
-    while(true) {
-        rowCount = Number(prompt("Set row number:"));
-
-        if(rowCount > 100) {
-            alert("Invalid! Max is 100");
-            continue;
+function generateGrid(rows, cols) {
+    for (let i = 0; i < rows; i++) {
+        let createRow = document.createElement("div");
+        createRow.classList.add("row");
+    
+        for (let j = 0; j < cols; j++) {
+            let createCol = document.createElement("div");
+            createCol.classList.add("col");
+            createRow.appendChild(createCol);
         }
-        else {
-            return rowCount;
-        }
-    }
+    
+        gridCanvas.appendChild(createRow);
+    }    
 }
 
-createDivs(setColumn(), setRow());
+document.getElementById("btn-generate-grid").addEventListener('click', () => {
+    generateGrid(parseInt(getRows()), parseInt(getCols()));
+
+    // let row = parseInt(getCols());
+    // let col = parseInt(getRows());
+    // console.log(`${row} & ${col} ${typeof row}`);
+})
 

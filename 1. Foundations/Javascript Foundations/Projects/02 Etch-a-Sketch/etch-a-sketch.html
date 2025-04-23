@@ -11,9 +11,31 @@
     <title>Etch a Sketch</title>
 </head>
 <body>
+
+    <div class="etch-container">
+
+        <div class="controls-panel">
+            <h1>Etch-a-Sketch</h1>
     
-    <div class="container">
-        
+            <div class="grid-inputs">
+                <label for="input-rows">Rows</label>
+                <input type="text" name="rows" id="input-rows">
+    
+                <label for="input-cols">Columns</label>
+                <input type="text" name="columns" id="input-cols">
+    
+                <button id="btn-generate-grid">Create</button>
+            </div>
+    
+            <button id="btn-random-color">Random</button>
+        </div>
+    
+        <div class="grid-container">
+            <div id="grid-canvas">
+                
+            </div>
+        </div>
+
     </div>
 
 </body>
