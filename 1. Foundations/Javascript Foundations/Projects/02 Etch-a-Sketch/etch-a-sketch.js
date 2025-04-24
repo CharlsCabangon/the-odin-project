@@ -27,6 +27,8 @@ function generateGrid(rows, cols) {
 }
 
 document.getElementById("btn-generate-grid").addEventListener('click', () => {
+    gridCanvas.innerHTML = "";
+    
     generateGrid(parseInt(getRows()), parseInt(getCols()));
 
     inputRows.value = '';
