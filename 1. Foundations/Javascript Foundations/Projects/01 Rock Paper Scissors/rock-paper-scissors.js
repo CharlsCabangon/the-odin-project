@@ -1,50 +1,43 @@
 
 let playerScore = 0;
 let computerScore = 0;
-const winScore = 3;
+let gameRound = 0;
+const maxRound = 5;
 
-function getPlayerChoice() {
-    let playerChoice = Number(prompt("0 for Rock, 1 for Paper, 2 for Scissors"));
-    
-    if (playerChoice === 0) {
-        return "ROCK";
-    }
-    else if (playerChoice === 1) {
-        return "PAPER";
-    }
-    else if (playerChoice === 2) {
-        return "SCISSORS";
-    }
-    else {
-        return null;
-    }
-}
-// console.log(getPlayerChoice());
+// WAHAHAHA SHOULD'VE USED getElementById
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+
+const computerChoiceDisplay = document.querySelector("#computer-choice-display");
+const btnPlayAgainDisplay = document.querySelector("#play-again-container");
+
+// const scoreDisplay = document.querySelector("#score-display");
+const playerScoreSpan = document.querySelector("#player-score");
+const computerScoreSpan = document.querySelector("#computer-score");
+const result = document.querySelector("#result");
 
 function getComputerChoice() {
+    
     let computerChoice = Math.floor(Math.random() * 3);
 
     switch (computerChoice) {
         case 0:
+            computerChoiceDisplay.textContent = "Computer chose rock!";
             return "ROCK";
         case 1:
+            computerChoiceDisplay.textContent = "Computer chose paper!";
             return "PAPER";
         case 2:
+            computerChoiceDisplay.textContent = "Computer chose scissors!";
             return "SCISSORS";
-        default:
-            return null;
     }
 }
-// console.log(getComputerChoice());
 
 function playRound(playerChoice, computerChoice) {
 
-    if (
-        (playerChoice === "ROCK" && computerChoice === "ROCK") ||
-        (playerChoice === "PAPER" && computerChoice === "PAPER") ||
-        (playerChoice === "SCISSORS" && computerChoice === "SCISSORS")
-    ) {
-        return "Draw";
+    if (playerChoice === computerChoice) {
+        result.textContent = "Draw";
     }
     else if (
         (playerChoice === "ROCK" && computerChoice === "SCISSORS") ||
@@ -52,7 +45,8 @@ function playRound(playerChoice, computerChoice) {
         (playerChoice === "SCISSORS" && computerChoice === "PAPER")
     ) {
         playerScore += 1;
-        return "You won!";
+        playerScoreSpan.textContent = `${playerScore}`;
+        result.textContent = "You won!";
     }
     else if (
         (playerChoice === "SCISSORS" && computerChoice === "ROCK") ||
@@ -60,22 +54,66 @@ function playRound(playerChoice, computerChoice) {
         (playerChoice === "PAPER" && computerChoice === "SCISSORS")
     ) {
         computerScore += 1;
-        return "Computer won!";
+        computerScoreSpan.textContent = `${computerScore}`;
+        result.textContent = "Computer won!";
+    }
+    gameRound++;
+
+    if(gameRound === maxRound) {
+        endGame();
+        playAgain();
     }
 }
 
-function playGame() {
+function endGame() {
 
-    for (let i = 1; i <= 3; i++) {
-        console.log(playRound(getPlayerChoice(), getComputerChoice()))
+    rock.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
+
+    if(playerScore > computerScore) {
+        alert("You won!");
     }
-    
-    if (playerScore > computerScore) {
-        console.log(`You won! ${playerScore}/${computerScore}`);
+    else if(computerScore > playerScore) {
+        alert("computer won!");
     }
     else {
-        console.log(`You lost! ${playerScore}/${computerScore}`);
+        alert("It's a draw!");
     }
 }
 
-playGame();
+function playAgain() {
+    btnPlayAgainDisplay.innerHTML = "";
+
+    const btn = document.createElement("button");
+    btn.classList.add("btn-play-again");
+    btn.innerText = "Play again";
+    btnPlayAgainDisplay.appendChild(btn);
+
+    btn.addEventListener('click', () => {
+        playerScore = 0;
+        computerScore = 0;
+        gameRound = 0;
+
+        playerScoreSpan.textContent = `${playerScore}`;
+        computerScoreSpan.textContent = `${computerScore}`
+
+        rock.disabled = false;
+        paper.disabled = false;
+        scissors.disabled = false;
+
+        btnPlayAgainDisplay.innerHTML = "";
+    })
+}
+
+rock.addEventListener('click', () => {
+    playRound("ROCK", getComputerChoice());
+});
+
+paper.addEventListener('click', () => {
+    playRound("PAPER", getComputerChoice());
+});
+
+scissors.addEventListener('click', () => {
+    playRound("SCISSORS", getComputerChoice());
+});
