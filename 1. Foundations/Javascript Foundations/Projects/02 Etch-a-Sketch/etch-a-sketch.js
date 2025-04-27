@@ -78,5 +78,9 @@ document.getElementById("btn-erase").addEventListener('click', () => {
     console.log(currentColor);
 })
 
+document.getElementById("btn-toggle").addEventListener('click', () => {
+    document.body.classList.toggle("dark-background");
+});
+
 
 

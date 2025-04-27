@@ -28,7 +28,7 @@ label {
 
 .controls-panel {
     height: 100vh;
-    background-color: #1b1b1b;
+    background-color: #bcbcbc;
 
 
     flex: 1;
@@ -43,10 +43,19 @@ label {
 
 .grid-container {
     height: 100vh;
-    background-color: #242424;
+    background-color: #ededed;
 
     flex: 2;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.dark-background .controls-panel {
+    background-color: #282828;
+    color: white;
+}
+
+.dark-background .grid-container {
+    background-color: #3b3b3b;
 }
