@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: Roboto;
+}
+
+.container {
+
+    display: flex;
+}
+
+.left-section {
+    width: 30vw;
+    height: 100vh;
+    background-image: url("Assets/background.png");
+    background-size: cover;
+}
+
+#logo {
+    width: 10rem;
+    height: 10rem;
+}
+
+.right-section {
+    width: 70vw;
+    height: 100vh;
+    margin-left: 3rem;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.header-container {
+    height: 25vh;
+
+    display: flex;
+    align-items: center;
+}
+
+.form-container {
+    height: 50vh;
+
+    display: flex;
+    align-items: center;
+}
+
+.form-columns {
+    width: 70vw;
+
+    display: flex;
+    
+}
+
+.right-form-column {
+    margin-left: 5rem;
+}
+
+.form-group {
+
+    display: flex;
+    flex-direction: column;
+}
+
+input:valid {
+    border: solid green;
+}
+
+input:invalid {
+    border: solid red;
+}
+
+input:focus {
+    border: 2px solid #5e4caf;
+    outline: none;
+    background-color: #f0fff0;
+}
