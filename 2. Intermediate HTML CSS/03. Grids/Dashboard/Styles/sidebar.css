@@ -1,0 +1,25 @@
+.sidebar-container {
+    height: 100%;
+    background-color: rgb(0, 174, 255);
+    padding: 1.5rem;
+
+    color: white;
+
+    display: grid;
+    grid-template-rows: 3rem 18rem 9rem;
+    gap: 2rem;
+}
+
+.sidebar-group {
+
+    display: grid;
+    grid-auto-flow: row;
+}
+
+.sidebar-item {
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
