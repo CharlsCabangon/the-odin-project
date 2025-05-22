@@ -3,7 +3,7 @@
     padding: 1.5rem;
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 1fr;
 }
 
 .projects-container {
@@ -15,13 +15,19 @@
 }
 
 .card-container {
-    width: 35rem;
-    height: 25rem;
+    width: 100%;
+    height: 20rem;
     background-color: white;
+    border-radius: 1.5rem;
 }
 
+.activity-panel {
+
+    display: grid;
+    grid-auto-flow: row;
+}
 .activity-card {
-    width: 25rem;
-    height: 35rem;
+    width: 100%;
+    height: 15rem;
     background-color: white;
 }

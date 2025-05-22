@@ -13,6 +13,11 @@
     font-family: Roboto;
 }
 
+html, body {
+    width: 100vw;
+    overflow-x: hidden;
+}
+
 .icon {
     width: 2.3rem;
     height: 2.3rem;
