@@ -1,5 +1,6 @@
 @import url(./sidebar.css);
 @import url(./top-section.css);
+@import url(./menu.css);
 
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
@@ -28,4 +29,5 @@
 .home-container {
 
     display: grid;
+    grid-template-rows: auto 1fr;
 }

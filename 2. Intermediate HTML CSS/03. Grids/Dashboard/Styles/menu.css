@@ -1,0 +1,27 @@
+.menu-container {
+    background-color: rgb(226, 233, 236);
+    padding: 1.5rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.projects-container {
+    padding-right: 1.5rem;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.card-container {
+    width: 35rem;
+    height: 25rem;
+    background-color: white;
+}
+
+.activity-card {
+    width: 25rem;
+    height: 35rem;
+    background-color: white;
+}
