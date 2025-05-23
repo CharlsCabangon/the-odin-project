@@ -86,8 +86,8 @@
 }
 
 .action-buttons {
-    width: 9em;
-    height: 4em;
+    width: 9rem;
+    height: 3.2rem;
 
     color: var(--bg-base);
     font-size: var(--text-base);
