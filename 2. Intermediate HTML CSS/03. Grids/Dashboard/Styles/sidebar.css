@@ -1,6 +1,7 @@
 .sidebar-container {
+    width: 250px;
     height: 100%;
-    background-color: rgb(0, 174, 255);
+    background-color: var(--color-primary);
     padding: 1.5rem;
 
     color: white;
@@ -8,6 +9,25 @@
     display: grid;
     grid-template-rows: 3rem 18rem 9rem;
     gap: 2rem;
+
+    position: fixed;
+    z-index: 100;
+}
+
+#icon-dashboard {
+    width: 3.5rem;
+    height: 3.5rem;
+    color: var(--bg-base);
+}
+
+.sidebar-container svg {
+    width: 1.8rem;
+    height: 1.8rem;
+    color: var(--bg-base);
+}
+
+.sidebar-container p {
+    font-size: var(--text-sm);
 }
 
 .sidebar-group {

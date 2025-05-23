@@ -1,6 +1,15 @@
 .top-container {
     padding: 1.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    background: rgb(253, 254, 255);
+    box-shadow: var(--box-shadow);
+    z-index: 1;
+}
+
+.top-container svg {
+    width: 2rem;
+    height: 2rem;
+    color: var(--text-base);
 }
 
 .top-bar-container {
@@ -22,7 +31,7 @@
     width: 35rem;
     height: 2.5rem;
     padding: 0.5rem;
-    background-color: lightgray;
+    background-color: var(--bg-muted);
     border: none;
     border-radius: 1.5rem;
 }
@@ -45,6 +54,10 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 3rem;
+
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .greeting-banner {
@@ -75,7 +88,12 @@
 .action-buttons {
     width: 9em;
     height: 4em;
-    background-color: skyblue;
+
+    color: var(--bg-base);
+    font-size: var(--text-base);
+    font-weight: bold;
+
+    background-color: var(--color-primary);
     border: none;
-    border-radius: 1.5rem;
+    border-radius: 2.5rem;
 }

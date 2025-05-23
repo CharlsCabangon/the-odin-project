@@ -5,6 +5,34 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+:root {
+
+    /* Font sizes */
+    --text-xs: 0.75rem;   /* 12px */
+    --text-sm: 0.875rem;  /* 14px */
+    --text-base: 1rem;    /* 16px */
+    --text-md: 1.125rem;  /* 18px */
+    --text-lg: 1.25rem;   /* 20px */
+    --text-xl: 1.5rem;    /* 24px */
+    --text-2xl: 1.875rem; /* 30px */
+    --text-3xl: 2.25rem;  /* 36px */
+    --text-4xl: 3rem;     /* 48px */
+    --text-5xl: 4rem;     /* 64px */
+
+    /* Colors */
+    --color-primary: #51a0e9;
+    --color-accent: #ecb938;
+
+    --bg-base: #fdfeff;
+    --bg-muted: #e2e9ec;
+
+    --text-base: #1a1a1a;
+    --text-muted: #6e6e6e;
+
+    /* Some CSS */
+    --box-shadow: 0 5px 5px rgb(0, 0, 0, 0.2);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -27,12 +55,16 @@ html, body {
     width: 100vw;
     height: auto;
 
-    display: grid;
-    grid-template-columns: minmax(200px, 250px) 1fr;
 }
 
 .home-container {
+    margin-left: 250px;
 
     display: grid;
     grid-template-rows: auto 1fr;
+}
+
+.span-txt {
+    font-size: var(--text-md);
+    font-weight: bold;
 }

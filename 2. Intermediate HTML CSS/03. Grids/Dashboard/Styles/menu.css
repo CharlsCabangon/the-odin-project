@@ -1,8 +1,9 @@
 .menu-container {
-    background-color: rgb(226, 233, 236);
+    background-color: var(--bg-muted);
     padding: 1.5rem;
 
     display: grid;
+    grid-template-rows: auto 1fr;
     grid-template-columns: 3fr 1fr;
 }
 
@@ -10,21 +11,34 @@
     padding-right: 1.5rem;
 
     display: grid;
+    grid-auto-flow: row;
+    gap: 1rem;
+}
+
+.cards-container {
+
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
 }
 
-.card-container {
+.card-group {
     width: 100%;
     height: 20rem;
     padding: 2rem;
 
     background-color: white;
     border-radius: 1.5rem;
-    border-left: 10px solid blue;
+    border-left: 10px solid var(--color-accent);
+    box-shadow: var(--box-shadow);
 
     display: grid;
     grid-template-rows: 1fr 3rem;
+
+    overflow-wrap: break-word;
+    word-break: break-word;
+    overflow: hidden;
+    min-width: 0;
 }
 
 .card-content {
@@ -32,6 +46,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .card-nav {
@@ -39,6 +57,10 @@
     display: flex;
     justify-content: flex-end;
     gap: 1rem;
+
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .card-nav-icon {
@@ -46,19 +68,30 @@
 }
 
 .activity-panel {
+    width: 100%;
     height: auto;
-    padding-right: 0.5rem;
+    padding-right: 1rem;
 
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 1.5rem;
-
 }
+
+.activity-container {
+    width: 100%;
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 1rem;
+}
+
 .activity-card {
     width: 100%;
     height: 15rem; /*set to auto*/
+
     background-color: white;
     border-radius: 1.5rem;
+    box-shadow: 0 5px 5px rgb(0, 0, 0, 0.2);
 }
 
