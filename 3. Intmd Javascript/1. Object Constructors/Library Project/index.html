@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="library.js" defer></script>
+
+    <title>Library Project</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="form-container">
+
+            <h1>Register your book!</h1>
+
+            <form action="" class="book-form">
+                <div class="form-group">
+                    <label for="name">Title</label>
+                    <input type="text" name="title" id="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" name="author" id="author" required>
+                </div>
+                <div class="form-group">
+                    <label for="pages">Pages</label>
+                    <input type="number" name="pages" id="pages" min="1" required>
+                </div>
+                <fieldset class="form-group">
+                    <legend>Read status</legend>
+                    
+                    <input type="radio" id="yes" name="read-status" value="yes">
+                    <label for="yes">Already read</label>
+
+                    <input type="radio" id="no" name="read-status" value="no">
+                    <label for="no">Not read yet</label>
+                </fieldset>
+            </form>
+
+            <button class="btn btn-submit" id="btn-submit" type="button">Add to Library</button>
+        </div>
+
+        <div class="display-container">
+
+        </div>
+    </div>
+
+</body>
+</html>
