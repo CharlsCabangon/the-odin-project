@@ -5,10 +5,13 @@ const addBookBtn = document.getElementById("addBookBtn");
 const addBookDialog = document.getElementById("addBookDialog");
 const bookForm = document.getElementById("bookForm");
 const cancelBtn = document.getElementById("btnCancel");
+const btnSubmit = document.getElementById("btnSubmit");
 
 
 addBookBtn.addEventListener('click', () => {
     addBookDialog.showModal();
+    // FOR UX PURPOSES: Optionally, focus the first input for accessibility
+    document.getElementById("title").focus();
 })
 
 cancelBtn.addEventListener('click', () => {
@@ -17,6 +20,8 @@ cancelBtn.addEventListener('click', () => {
 
 addBookDialog.addEventListener('close', () => {
     bookForm.reset();
+    // FOR UX PURPOSES: Return focus for accessibility
+    addBookBtn.focus();
 })
 
 function Book(title, author, pages, hasRead) {
@@ -45,12 +50,12 @@ function addBookToLibrary() {
 
     if (!title || !author || isNaN(pages)) {
         alert("Please fill in all the fields correctly.");
-        return;
+        return false;
     }
 
     if (!selectedStatus) {
         alert("Please select a read status.");
-        return;
+        return false;
     }
 
     const hasRead = selectedStatus.value === "yes";
@@ -58,9 +63,20 @@ function addBookToLibrary() {
     myLibrary.push(newBook);
 
     console.log("Book added:", newBook);
+    return true;
 }
 
-document.getElementById("btnSubmit").addEventListener('click', () => {
-    addBookToLibrary();
-    console.table(myLibrary);
+bookForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    //Prevent double submissions
+    btnSubmit.disabled = true;
+
+    if(addBookToLibrary()) {
+        console.table(myLibrary);
+        addBookDialog.close();
+        alert("Book added!");
+    }
+    
+    btnSubmit.disabled = false;
 })
