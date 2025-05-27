@@ -1,27 +1,27 @@
 
 const myLibrary = [];
 
-const addBookBtn = document.getElementById("addBookBtn");
 const addBookDialog = document.getElementById("addBookDialog");
 const bookForm = document.getElementById("bookForm");
-const cancelBtn = document.getElementById("btnCancel");
-const btnSubmit = document.getElementById("btnSubmit");
+const btnOpen = document.getElementById("openDialogBtn");
+const btnCancel = document.getElementById("cancelBtn");
+const btnSubmit = document.getElementById("submitBtn");
 
 
-addBookBtn.addEventListener('click', () => {
+btnOpen.addEventListener('click', () => {
     addBookDialog.showModal();
     // FOR UX PURPOSES: Optionally, focus the first input for accessibility
     document.getElementById("title").focus();
 })
 
-cancelBtn.addEventListener('click', () => {
+btnCancel.addEventListener('click', () => {
     addBookDialog.close();
 })
 
 addBookDialog.addEventListener('close', () => {
     bookForm.reset();
     // FOR UX PURPOSES: Return focus for accessibility
-    addBookBtn.focus();
+    btnOpen.focus();
 })
 
 function Book(title, author, pages, hasRead) {
@@ -46,7 +46,7 @@ function addBookToLibrary() {
     const title = document.getElementById("title").value.trim();
     const author = document.getElementById("author").value.trim();
     const pages = parseInt(document.getElementById("pages").value, 10);
-    const selectedStatus = document.querySelector("input[name='read-status']:checked")
+    const selectedStatus = document.querySelector("input[name='readStatus']:checked")
 
     if (!title || !author || isNaN(pages)) {
         alert("Please fill in all the fields correctly.");
@@ -75,7 +75,7 @@ bookForm.addEventListener('submit', (e) => {
     if(addBookToLibrary()) {
         console.table(myLibrary);
         addBookDialog.close();
-        alert("Book added!");
+        alert("Book added!")
     }
     
     btnSubmit.disabled = false;
