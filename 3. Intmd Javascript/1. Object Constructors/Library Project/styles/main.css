@@ -1,0 +1,91 @@
+@import url(dialog.css);
+@import url(book-card.css);
+
+@import url('../assets/fonts/CabinetGrotesk/css/cabinet-grotesk.css');
+@import url('../assets/fonts/Satoshi/css/satoshi.css');
+
+:root {
+
+    /* Colors */
+    --color-primary: #529e81;
+    --color-secondary: #3a888e;
+    --color-accent: #ffcf88;
+
+    --bg-base: #ffffff;
+    --bg-muted: ;
+
+    --text-base: #1a1a1a;
+    --text-muted: ;
+
+        /* Font styles */
+    --font-heading: 'CabinetGrotesk-Black';
+    --font-body-regular: 'Satoshi-Regular';
+    --font-body-medium: 'Satoshi-Medium';
+    --font-body-bold: 'Satoshi-Bold';
+
+    --font-ui: 'Satoshi-Medium';
+
+    /* Font sizes */
+    --text-xs: 0.75rem;   /* 12px */
+    --text-sm: 0.875rem;  /* 14px */
+    --text-base: 1rem;    /* 16px */
+    --text-md: 1.125rem;  /* 18px */
+    --text-lg: 1.25rem;   /* 20px */
+    --text-xl: 1.5rem;    /* 24px */
+    --text-2xl: 1.875rem; /* 30px */
+    --text-3xl: 2.25rem;  /* 36px */
+    --text-4xl: 3rem;     /* 48px */
+    --text-5xl: 4rem;     /* 64px */
+
+    /* Some CSS */
+    --box-shadow: 0 2px 8px rgb(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: var(--font-body-regular);
+}
+
+html, body {
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100vw;
+    height: auto;
+}
+
+.sidebar-container {
+    width: 250px;
+    height: 100vh;
+
+    background-color: var(--color-primary);
+
+    position: fixed;
+    z-index: 100;
+}
+
+.home-container {
+    margin-left: 250px;
+
+    display: grid;
+    grid-template-rows: 100px 1fr;
+}
+
+.header-container {
+    padding: 1.5rem;
+
+    background-color: var(--bg-base);
+    box-shadow: var(--box-shadow);
+    z-index: 1;
+}
+
+.book-display {
+    padding: 1.5rem;
+}
+
+
