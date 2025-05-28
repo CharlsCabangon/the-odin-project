@@ -75,8 +75,38 @@ bookForm.addEventListener('submit', (e) => {
     if(addBookToLibrary()) {
         console.table(myLibrary);
         addBookDialog.close();
-        alert("Book added!")
+        alert("Book added!");
+        renderLibrary();
     }
     
     btnSubmit.disabled = false;
 })
+
+// To display the book in the DOM
+
+function renderLibrary() {
+
+    const bookDisplayContainer = document.getElementById("bookDisplay");
+
+    bookDisplayContainer.innerHTML = '';
+
+    const bookCard = document.createElement("div");
+    bookCard.classList.add("book-card");
+
+    myLibrary.forEach((book, index) => {
+
+        bookCard.innerHTML = `
+        <h3>${book.title}</h3>
+        <p><strong>Author:</strong> ${book.author}</p>
+        <p><strong>Pages:</strong> ${book.pages}</p>
+        <p><strong>Status:</strong> ${book.hasRead ? "Read" : "Not read yet"}</p>
+        <button data-index="${index}" class="remove-btn">Remove</button>
+        `;
+    })
+
+    bookDisplayContainer.appendChild(bookCard);
+}
+
+function removeBookCard() {
+
+}

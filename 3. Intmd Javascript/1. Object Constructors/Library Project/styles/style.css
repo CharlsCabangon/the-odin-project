@@ -1,0 +1,12 @@
+
+
+
+fieldset {
+    border: none;
+}
+
+.book-card {
+    width: 10rem;
+    height: auto;
+    background-color: pink;
+}
