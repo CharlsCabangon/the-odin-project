@@ -11,14 +11,17 @@
     --color-secondary: #3a888e;
     --color-accent: #ffcf88;
 
+    --color-gradient-1: linear-gradient(90deg,rgba(82, 158, 129, 1) 0%, rgba(58, 136, 142, 1) 58%);
+    --color-gradient-2: linear-gradient(90deg,rgba(58, 136, 142, 1) 0%, rgba(82, 158, 129, 1) 58%);
+
     --bg-base: #ffffff;
-    --bg-muted: ;
+    --bg-muted: #eaf5f0;
 
     --text-base: #1a1a1a;
     --text-muted: ;
 
         /* Font styles */
-    --font-heading: 'CabinetGrotesk-Black';
+    --font-heading: 'CabinetGrotesk-Extrabold';
     --font-body-regular: 'Satoshi-Regular';
     --font-body-medium: 'Satoshi-Medium';
     --font-body-bold: 'Satoshi-Bold';
@@ -38,7 +41,9 @@
     --text-5xl: 4rem;     /* 64px */
 
     /* Some CSS */
-    --box-shadow: 0 2px 8px rgb(0, 0, 0, 0.2);
+    --box-shadow-1: 0 2px 8px rgb(0, 0, 0, 0.2);
+    --box-shadow-2: 0 2px 3px rgb(0, 0, 0, 0.2);
+
 }
 
 * {
@@ -54,6 +59,9 @@ html, body {
     overflow-x: hidden;
 }
 
+h1, h2, h3, h4, h5 {
+    font-family: var(--font-heading);
+}
 .container {
     width: 100vw;
     height: auto;
@@ -63,7 +71,7 @@ html, body {
     width: 250px;
     height: 100vh;
 
-    background-color: var(--color-primary);
+    background: var(--color-gradient-2);
 
     position: fixed;
     z-index: 100;
@@ -80,12 +88,17 @@ html, body {
     padding: 1.5rem;
 
     background-color: var(--bg-base);
-    box-shadow: var(--box-shadow);
+    box-shadow: var(--box-shadow-1);
     z-index: 1;
 }
 
 .book-display {
     padding: 1.5rem;
+
+    background-color: var(--bg-muted);
+
+    display: grid;
+    grid-template-columns: auto auto auto;
 }
 
 
