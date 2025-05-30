@@ -10,11 +10,11 @@ export function renderLibrary(library) {
 
         // Fill in the book details using template literals
         bookCard.innerHTML = `
-            <h3>${book.title}</h3>
+            <h2>${book.title}</h2>
             <p><strong>Author:</strong> ${book.author}</p>
             <p><strong>Pages:</strong> ${book.pages}</p>
-            <button data-id="${book.id}" class="toggle-read-btn">Mark as ${book.hasRead ? 'Not Read' : 'Read'}</button>
-            <button data-id="${book.id}" class="remove-btn">Remove</button>
+            <button data-id="${book.id}" class="btn-toggle-read">Mark as ${book.hasRead ? 'Not Read' : 'Read'}</button>
+            <button data-id="${book.id}" class="btn-remove">Remove</button>
         `;
 
         container.appendChild(bookCard); // Add to the page
@@ -26,7 +26,7 @@ export function renderLibrary(library) {
 
 // Hook up click events to each "Remove" button
 function addRemoveButtonListeners(library) {
-    const buttons = document.querySelectorAll('.remove-btn'); // Get all remove buttons
+    const buttons = document.querySelectorAll('.btn-remove'); // Get all remove buttons
     buttons.forEach(button => {
         button.addEventListener('click', () => {
             const bookId = button.getAttribute('data-id'); // Get the book's ID
@@ -42,7 +42,7 @@ function addRemoveButtonListeners(library) {
 }
 
 function addToggleReadButtonListeners(library) {
-    const toggleButtons = document.querySelectorAll('.toggle-read-btn');
+    const toggleButtons = document.querySelectorAll('.btn-toggle-read');
 
     toggleButtons.forEach(button => {
         button.addEventListener('click', () => {

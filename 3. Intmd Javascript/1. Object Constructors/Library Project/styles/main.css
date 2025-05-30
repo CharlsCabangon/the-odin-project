@@ -70,8 +70,9 @@ h1, h2, h3, h4, h5 {
 .sidebar-container {
     width: 250px;
     height: 100vh;
+    padding: 1.5rem;
 
-    background: var(--color-gradient-2);
+    background: var(--color-primary);
 
     position: fixed;
     z-index: 100;

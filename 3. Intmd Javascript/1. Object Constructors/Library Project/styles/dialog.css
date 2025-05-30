@@ -1,3 +1,41 @@
+.btn-open-dialog {
+    width: 15rem;
+    height: 4rem;
+    padding: 1rem;
+
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    font-family: var(--font-body-bold);
+
+    background: var(--bg-base);
+    border: none;
+    border-radius: 3rem;
+    box-shadow: var(--box-shadow-2);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-open-dialog:hover {
+    width: 15.3rem;
+    height: 4rem;
+    padding: 1rem;
+
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    font-family: var(--font-body-bold);
+
+    background: var(--bg-muted);
+    border: 0.13rem solid var(--color-primary);
+    border-radius: 3rem;
+    box-shadow: var(--box-shadow-1);
+}
+
+.btn-open-dialog-container {
+
+    display: flex;
+    justify-content: center;
+}
+
 .add-book-dialog {
     width: 30vw;
     height: 75vh;
@@ -196,4 +234,8 @@ input[type="radio"] {
 
     border: 0.13rem solid var(--color-primary);
     border-radius: 3rem;
+}
+
+fieldset {
+    border: none;
 }
