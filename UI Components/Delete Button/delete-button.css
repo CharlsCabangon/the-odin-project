@@ -1,0 +1,86 @@
+body {
+    background: url(images/img.jpg);
+}
+
+.icon {
+    background: #eee;
+    margin: 20% auto 5%;
+    position: relative;
+    width: 9rem;
+    height: 9rem;
+    border-radius: 5rem;
+    transition: box-shadow 0.2s ease;
+}
+
+.icon:hover {
+    box-shadow: 0 0 10px rgba(10, 10, 10, .5);
+}
+
+.lid {
+    position: absolute;
+    bottom: 89px;
+    left: 33px;
+    width: 75px;
+    height: 10px;
+}
+
+
+.lidcap {
+    position: absolute;
+    bottom: 98px;
+    left: 65px;
+    height: 7px;
+    width: 9px;
+}
+
+.lid,
+.lidcap {
+    border-top-left-radius: 23.8px;
+    border-top-right-radius: 23.8px;
+    background: #111;
+    transition: transform 0.2s linear, margin 0.2s linear;
+}
+
+.icon:hover .lid,
+.icon:hover .lidcap {
+    transform: rotateX(14deg);
+    margin-bottom: 15.5px;
+}
+
+.bin {
+    position: absolute;
+    bottom: 21px;
+    left: 39px;
+    width: 49px;
+    border-top: 70px solid #111;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+}
+
+.c {
+    position: absolute;
+    border-radius: 0px;
+    width: 4px;
+    background-color: #fff;
+    height: 48px;
+    bottom: 11px;
+}
+
+.c.cut1 {
+    left: 35px;
+    transform: rotate(5deg);
+}
+
+.c.cut2 {
+    right: 35px;
+    transform: rotate(-5deg);
+}
+
+
+h1 {
+    text-align: center;
+    font-family: sans-serif;
+    text-shadow: 0 1px 1px #fff;
+    color: #111;
+    text-transform: uppercase;
+}
