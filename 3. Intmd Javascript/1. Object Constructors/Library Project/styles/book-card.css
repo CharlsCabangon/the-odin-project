@@ -1,37 +1,23 @@
 .book-card {
     width: 20vw;
-    height: 45vh;
+    height: 33vh;
     padding: 1.5rem;
 
     background-color: var(--bg-base);
-    /* border-left: 1rem solid var(--color-primary); */
     border-radius: 0.5rem 1.5rem 1.5rem 0.5rem;
     box-shadow: var(--box-shadow-2);
+
+    display: flex;
+    flex-direction: column;
 }
 
 .book-card h2 p{
+    margin-bottom: ;
 
     color: var(--text-base);
 }
 
 .book-card .btn-toggle-read {
-    width: 11em;
-    height: 4em;
-    padding: 1em;
-
-    color: var(--bg-base);
-    font-size: 0.9rem;
-    font-family: var(--font-body-bold);
-
-    background: var(--color-gradient-1);
-    border: none;
-    border-radius: 3rem;
-    box-shadow: var(--box-shadow-2);
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.book-card .btn-remove {
     width: 11em;
     height: 4em;
     padding: 1em;

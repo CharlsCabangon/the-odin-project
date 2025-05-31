@@ -14,7 +14,15 @@ export function renderLibrary(library) {
             <p><strong>Author:</strong> ${book.author}</p>
             <p><strong>Pages:</strong> ${book.pages}</p>
             <button data-id="${book.id}" class="btn-toggle-read">Mark as ${book.hasRead ? 'Not Read' : 'Read'}</button>
-            <button data-id="${book.id}" class="btn-remove">Remove</button>
+            
+            <div data-id="${book.id}" class="btn-remove">
+                <div class="lid"></div>
+                <div class="lid-cap"></div>
+                <div class="bin">
+                    <div class="c cut-1"></div>
+                    <div class="c cut-2"></div>
+                </div>
+            </div>
         `;
 
         container.appendChild(bookCard); // Add to the page

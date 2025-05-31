@@ -1,0 +1,89 @@
+
+.btn-remove {
+    width: 3rem;
+    height: 3rem;
+    margin: 17% 80% 0%;
+
+    background: #eee;
+    border-radius: 5rem;
+    box-shadow: var(--box-shadow-2);
+    cursor: pointer;
+
+    position: relative;
+    transition: box-shadow 0.2s ease;
+}
+
+.btn-remove:hover {
+
+    box-shadow: 0 0 5px rgba(10, 10, 10, 0.8);
+}
+
+.lid {
+    width: 27px;
+    height: 5px;
+
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+}
+
+
+.lid-cap {
+    width: 5px;
+    height: 3px;
+
+    position: absolute;
+    bottom: 35px;
+    left: 21px;
+}
+
+.lid,
+.lid-cap {
+
+    background: var(--color-secondary);
+    border-top-left-radius: 23.8px;
+    border-top-right-radius: 23.8px;
+
+    transition: transform 0.2s linear, margin 0.2s linear;
+}
+
+.icon:hover .lid,
+.icon:hover .lid-cap {
+    margin-bottom: 5.5px;
+
+    transform: rotateX(14deg);
+}
+
+.bin {
+    width: 23px;
+
+    border-top: 23px solid  var(--color-secondary);
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+
+    position: absolute;
+    bottom: 8px;
+    left: 12px;
+}
+
+.c {
+    width: 2px;
+    height: 13px;
+
+    background-color: #fff;
+
+    position: absolute;
+    bottom: 5px;
+}
+
+.c.cut-1 {
+
+    left: 11px;
+    transform: rotate(5deg);
+}
+
+.c.cut-2 {
+
+    right: 11px;
+    transform: rotate(-5deg);
+}
