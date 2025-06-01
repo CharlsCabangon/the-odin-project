@@ -1,6 +1,7 @@
 @import url(dialog.css);
 @import url(book-card.css);
 @import url(delete-button.css);
+@import url(checkmark.css);
 
 @import url('../assets/fonts/CabinetGrotesk/css/cabinet-grotesk.css');
 @import url('../assets/fonts/Satoshi/css/satoshi.css');
@@ -17,6 +18,8 @@
 
     --bg-base: #ffffff;
     --bg-muted: #eaf5f0;
+
+    --ui-muted: #c2dacf;
 
     --text-base: #1a1a1a;
     --text-muted: ;
@@ -58,6 +61,8 @@
 html, body {
     width: 100vw;
     overflow-x: hidden;
+
+    background-color: var(--bg-muted);
 }
 
 h1, h2, h3, h4, h5 {
@@ -97,10 +102,9 @@ h1, h2, h3, h4, h5 {
 .book-display {
     padding: 1.5rem;
 
-    background-color: var(--bg-muted);
-
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
 }
 
 

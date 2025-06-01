@@ -136,18 +136,14 @@
     border-radius: 2rem;
 }
 
-.text-input:focus {
-    width: 22rem;
-    height: 2.7rem;
-    padding: 1.5rem;
-    margin-bottom: 0.5rem;
+.text-input:hover {
 
-        font-size: 1rem;
-
-    background-color: var(--bg-muted);
-    border: none;
     outline: none;
-    border-radius: 2rem;
+    box-shadow: var(--box-shadow-1);
+}
+
+.text-input:focus {
+    outline: none;
     box-shadow: var(--box-shadow-2);
 }
 
@@ -180,17 +176,8 @@ input[type="radio"] {
 }
 
 .btn-submit:hover {
-    width: 11.3em;
-    height: 4.3em;
-    padding: 1em;
-
-    color: var(--bg-base);
-    font-size: 0.9rem;
-    font-family: var(--font-body-bold);
 
     background: var(--color-gradient-2);
-    border: none;
-    border-radius: 3rem;
     box-shadow: var(--box-shadow-1);
 }
 
@@ -225,12 +212,6 @@ input[type="radio"] {
 }
 
 .btn-cancel:hover {
-    width: 11.3em;
-    height: 4.3em;
-    padding: 1em;
-
-    font-size: 0.9rem;
-    font-family: var(--font-body-regular);
 
     border: 0.13rem solid var(--color-primary);
     border-radius: 3rem;

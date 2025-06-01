@@ -1,35 +1,43 @@
 .book-card {
-    width: 20vw;
-    height: 33vh;
+    width: 100%;
+    height: clamp(250px, 30vh, 300px);
     padding: 1.5rem;
 
     background-color: var(--bg-base);
     border-radius: 0.5rem 1.5rem 1.5rem 0.5rem;
     box-shadow: var(--box-shadow-2);
 
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 0.75rem;
+
+    position: relative;
+}
+
+.book-card:hover {
+    box-shadow: var(--box-shadow-1);
+}
+
+.book-actions {
+    
+    display: grid;
+    grid-auto-flow: column;
 }
 
 .book-card h2 p{
-    margin-bottom: ;
 
     color: var(--text-base);
 }
 
-.book-card .btn-toggle-read {
-    width: 11em;
-    height: 4em;
-    padding: 1em;
+.read-label {
 
-    color: var(--bg-base);
-    font-size: 0.9rem;
     font-family: var(--font-body-bold);
+    font-size: 0.9rem;
+    color: var(--color-primary);
 
-    background: var(--color-gradient-1);
-    border: none;
-    border-radius: 3rem;
-    box-shadow: var(--box-shadow-2);
-    cursor: pointer;
-    transition: all 0.3s;
+    position: absolute;
+    left: 68px;
+    bottom: 29px;
+
+    user-select: none;
 }

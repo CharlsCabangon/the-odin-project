@@ -11,16 +11,28 @@ export function renderLibrary(library) {
         // Fill in the book details using template literals
         bookCard.innerHTML = `
             <h2>${book.title}</h2>
-            <p><strong>Author:</strong> ${book.author}</p>
-            <p><strong>Pages:</strong> ${book.pages}</p>
-            <button data-id="${book.id}" class="btn-toggle-read">Mark as ${book.hasRead ? 'Not Read' : 'Read'}</button>
-            
-            <div data-id="${book.id}" class="btn-remove">
-                <div class="lid"></div>
-                <div class="lid-cap"></div>
-                <div class="bin">
-                    <div class="c cut-1"></div>
-                    <div class="c cut-2"></div>
+
+            <div class="book-info">
+                <p><strong>Author:</strong> ${book.author}</p>
+                <p><strong>Pages:</strong> ${book.pages}</p>
+            </div>
+
+            <div class="book-actions">
+                <label class="checkbox-container">
+                    <input type="checkbox" class="read-unread" data-id="${book.id}" ${book.hasRead ? 'checked' : ''}>
+                    <div class="checkmark"></div>
+
+                </label>
+
+                <span class="read-label">${book.hasRead ? 'Done!' : 'Unread'}</span>
+
+                <div data-id="${book.id}" class="btn-remove">
+                    <div class="lid"></div>
+                    <div class="lid-cap"></div>
+                    <div class="bin">
+                        <div class="c cut-1"></div>
+                        <div class="c cut-2"></div>
+                    </div>
                 </div>
             </div>
         `;
@@ -50,7 +62,7 @@ function addRemoveButtonListeners(library) {
 }
 
 function addToggleReadButtonListeners(library) {
-    const toggleButtons = document.querySelectorAll('.btn-toggle-read');
+    const toggleButtons = document.querySelectorAll('.read-unread');
 
     toggleButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -60,7 +72,7 @@ function addToggleReadButtonListeners(library) {
             if (book) {
                 book.hasRead = !book.hasRead; // Toggle the boolean
                 localStorage.setItem('myLibrary', JSON.stringify(library)); // Save changes
-                renderLibrary(library); // Re-render updated list
+                setTimeout(() => renderLibrary(library), 500); // Re-render updated list
             }
         });
     });

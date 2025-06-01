@@ -1,79 +1,79 @@
 
 .btn-remove {
-    width: 3rem;
-    height: 3rem;
-    margin: 17% 80% 0%;
+    /* width: 3rem;
+    height: 3rem; */
+    margin: 0% 0% 0%;
 
-    background: #eee;
+    /* background: #eee;
     border-radius: 5rem;
     box-shadow: var(--box-shadow-2);
-    cursor: pointer;
+    cursor: pointer; */
 
     position: relative;
-    transition: box-shadow 0.2s ease;
+    /* transition: box-shadow 0.2s ease; */
 }
 
 .btn-remove:hover {
 
-    box-shadow: 0 0 5px rgba(10, 10, 10, 0.8);
+    /* box-shadow: 0 0 5px rgba(10, 10, 10, 0.8); */
 }
 
 .lid {
-    width: 27px;
+    width: 24px;
     height: 5px;
 
     position: absolute;
-    bottom: 30px;
-    left: 10px;
+    bottom: 19px;
+    left: 89px;
 }
 
 
 .lid-cap {
-    width: 5px;
-    height: 3px;
+    width: 4px;
+    height: 4px;
 
     position: absolute;
-    bottom: 35px;
-    left: 21px;
+    bottom: 23px;
+    left: 99px;
 }
 
 .lid,
 .lid-cap {
 
-    background: var(--color-secondary);
+    background: var(--ui-muted);
     border-top-left-radius: 23.8px;
     border-top-right-radius: 23.8px;
 
     transition: transform 0.2s linear, margin 0.2s linear;
 }
 
-.icon:hover .lid,
-.icon:hover .lid-cap {
+.btn-remove:hover .lid,
+.btn-remove:hover .lid-cap {
     margin-bottom: 5.5px;
 
     transform: rotateX(14deg);
 }
 
 .bin {
-    width: 23px;
+    width: 20px;
 
-    border-top: 23px solid  var(--color-secondary);
-    border-left: 3px solid transparent;
-    border-right: 3px solid transparent;
+    border-top: 20px solid  var(--ui-muted);
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
 
     position: absolute;
-    bottom: 8px;
-    left: 12px;
+    bottom: 0px;
+    left: 91px;
 }
 
 .c {
     width: 2px;
-    height: 13px;
+    height: 11px;
 
     background-color: #fff;
 
     position: absolute;
-    bottom: 5px;
+    bottom: 4px;
 }
 
 .c.cut-1 {
