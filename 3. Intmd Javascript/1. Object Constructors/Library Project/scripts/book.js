@@ -10,4 +10,4 @@ export class Book {
     info() {
         return `${this.title} by ${this.author}, ${this.pages} pages, ${this.hasRead ? 'already read' : 'not read yet'}`;
     }
-}
+}   

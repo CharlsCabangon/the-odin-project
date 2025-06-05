@@ -1,0 +1,32 @@
+
+const GameBoard = (function() {
+    let board = ["", "", "", "", "", "", "", "", ""];
+
+    const getBoard = () => board;
+
+    const updateCell = (index, symbol) => {
+        if(board[index] === "") {
+            board[index] = symbol;
+            return true
+        }
+        return false;
+    };
+
+    const reset = () => {
+        board = ["", "", "", "", "", "", "", "", ""];
+    };
+
+    const display = () => {
+        console.log(`
+            ${board[0] || 0} | ${board[1] || 1} | ${board[2] || 2}
+            ---+---+---
+            ${board[3] || 3} | ${board[4] || 4} | ${board[5] || 5}
+            ---+---+---
+            ${board[6] || 6} | ${board[7] || 7} | ${board[8] || 8}
+            `)
+    };
+
+    return { getBoard, updateCell, reset, display };
+})();
+
+GameBoard.display();
