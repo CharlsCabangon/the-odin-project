@@ -1,0 +1,14 @@
+.grid-wrapper {
+    padding: .1rem;
+    border: 2px solid black;
+
+    display: grid;
+    grid-template-columns: repeat(3, 8rem);
+    grid-template-rows: repeat(3, 8rem);
+    gap: .1rem;
+}
+
+.grid-cell {
+
+    border: 2px solid black;
+}
