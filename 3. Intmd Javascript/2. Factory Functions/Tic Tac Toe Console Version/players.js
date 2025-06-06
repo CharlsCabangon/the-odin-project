@@ -1,5 +1,5 @@
-export function Player(name, marker) {
-    return {name, marker};
+export function Player(name, symbol) {
+    return {name, symbol};
 }
 
 const player1 = Players("player 1", "x");
