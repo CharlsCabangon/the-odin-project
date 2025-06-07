@@ -6,7 +6,7 @@ export const GameController = (function() {
     const playerX = Player("Player 1", "X");
     const playerO = Player("Player O", "O");
     let currentPlayer = playerX;
-    let gameOver = false;
+    let gameOver = false; // Flag to lock game state.
 
     const winningCombos = [
         [0, 1, 2],
@@ -19,7 +19,7 @@ export const GameController = (function() {
         [2, 4, 6]
     ];
 
-    const playRound = (index) => {
+    const playRound = (index) => { // Core function for playing a turn.
         if(gameOver || !GameBoard.updateCell(index, currentPlayer.getPlayerSymbol())) {
             return;
         }
@@ -38,7 +38,7 @@ export const GameController = (function() {
             return;
         }
 
-        currentPlayer = currentPlayer === playerX ? playerO : playerX;
+        currentPlayer = currentPlayer === playerX ? playerO : playerX; // Switch turns.
         DisplayController.setTurnMessage(`${currentPlayer.getPlayerName()}'s turn`);
     }
 
