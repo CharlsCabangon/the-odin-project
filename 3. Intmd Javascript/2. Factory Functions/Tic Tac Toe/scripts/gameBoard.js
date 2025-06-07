@@ -1,3 +1,4 @@
+// IIFE to encapsulate the game board state.
 
 export const GameBoard = (function() {
     let board = ["", "", "", "", "", "", "", "", ""];
@@ -9,14 +10,14 @@ export const GameBoard = (function() {
             board[index] = symbol;
             return true;
         }
-        return false;
+        return false; // Reject update if cell is already filled.
     };
 
     const reset = () => {
         board = ["", "", "", "", "", "", "", "", ""];
     };
 
-    return {
+    return { // Expose public functions.
         getBoard,
         updateCell,
         reset
