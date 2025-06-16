@@ -1,11 +1,11 @@
 
-export function loadHome() {
+export function loadAbout() {
     const container = document.getElementById("content");
 
     const div = document.createElement("div");
     const para = document.createElement("p");
 
-    div.innerHTML = "Hello";
+    div.innerHTML = "ABOUT WHAT?!?!?!?!";
 
     container.appendChild(div);
 };
