@@ -1,0 +1,98 @@
+.home-container {
+    margin-top: 2rem;
+
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+}
+
+.hero__panel--left {
+    margin-left: 6rem;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.cravey__logo {
+    width: 630px;
+    margin-top: 1.5rem;
+}
+
+.hero__text-group {
+    margin: 0.5rem 1.5rem;
+}
+
+.cravey__slogan {
+    font-family: var(--font-brand);
+    font-size: 3rem;
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+.cravey__description {
+    width: 35rem;
+
+    font-family: var(--font-ui);
+    color: var(--color-primary);
+    font-size: 1.1rem;
+}
+
+.btn--cta {
+    width: 14rem;
+    height: 4rem;
+    margin-left: 1.5rem;
+
+    font-family: var(--font-ui);
+    color: var(--color-bg-base);
+    font-size: 1.3rem;
+    font-weight: bold;
+
+    background-color: var(--color-accent);
+    border: transparent;
+    border-radius: 2rem;
+}
+
+.hero__panel--right {
+
+    position: relative;
+}
+
+.decor__icon, .decor__mascot {
+    width: 12rem;
+
+    position: absolute;
+}
+
+.decor__icon--starburst1 {
+    width: 9rem;
+
+    top: 10px;
+    left: 80px;
+}
+
+.decor__mascot--burger {
+    width: 15rem;
+    
+    top: 20px;
+    left: 260px;
+}
+
+.decor__mascot--pizza {
+    width: 16rem;
+
+    top: 170px;
+}
+
+.decor__icon--starburst2 {
+    width: 15rem;
+
+    top: 250px;
+    left: 300px;
+}
+
+.footer__background {
+    margin-top: 3.5rem;
+    height: 3rem;
+
+    background-image: url("../assets/elements/blue-checkered-10x3.svg");
+}

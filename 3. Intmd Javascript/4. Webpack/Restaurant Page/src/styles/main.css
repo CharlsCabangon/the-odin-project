@@ -25,12 +25,10 @@
     --color-text-muted: #324882;
 
     /* Font styles */
-    --font-heading: ;
-    --font-body-regular: Poppins;
-    --font-body-medium: ;
-    --font-body-bold: ;
+    --font-brand: "Baloo Chettan 2";
+    --font-base: "Poppins";
 
-    --font-ui: ;
+    --font-ui: "Poppins";
     
 	--weight-regular: 400;
     --weight-medium: 500;
@@ -59,13 +57,13 @@
     padding: 0;
     box-sizing: border-box;
 
-    font-family: var(--font-body-regular);
+    font-family: var(--font-base);
 }
 
 html, body {
     width: 100vw;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    /* padding-left: 1rem;
+    padding-right: 1rem; */
 
     background-color: var(--color-bg-base);
 
