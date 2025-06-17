@@ -1,0 +1,65 @@
+.menu-container {
+    margin: 1.5rem 5rem;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+}
+
+.menu__card {
+    width: 25rem;
+    height: 26rem;
+    padding: 0.4rem;
+
+    background-color: var(--color-primary);
+    border-radius: 3rem;
+
+    display: grid;
+    grid-template-rows: 80% 20%;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu__image {
+    width: 23rem;
+}
+
+.menu__card-body {
+    margin-bottom: 2rem;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu__card-title {
+    font-family: var(--font-brand);
+    font-size: 1.7rem;
+    color: var(--color-bg-base);
+    font-weight: bold;
+}
+
+.menu__card-price {
+    font-family: var(--font-brand);
+    font-size: 1.7rem;
+    color: var(--color-accent);
+    font-weight: bold;
+
+    margin-top: -0.5rem;
+}
+
+.menu__card-action {
+    width: 3.8rem;
+    height: 3.8rem;
+
+    background-color: var(--color-bg-base);
+    border-radius: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn__icon-add {
+    width: 2.5rem;
+
+}
+
