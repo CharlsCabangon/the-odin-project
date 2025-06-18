@@ -5,6 +5,7 @@ import mascotPizza from "../assets/elements/mascot-pizza.svg";
 
 export function loadHome() {
     const content = document.getElementById('content');
+    content.style.backgroundImage = "none";
 
     const homeContainer = document.createElement('div');
     homeContainer.className = 'home-container';

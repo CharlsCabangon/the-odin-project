@@ -1,8 +1,11 @@
 import imgChickenburger from "../images/chicken-burger.png";
 import imgCheeseburger from "../images/cheeseburger.png";
 import imgFries from "../images/fries.png";
+import imgPepperoniPizza from "../images/pepperoni-pizza.png";
 
 import addIcon from "../assets/elements/add-icon.svg";
+
+import bgCheckerboard from "../assets/elements/red-checkered.svg";
 
 const menuItems = [
     {
@@ -19,12 +22,22 @@ const menuItems = [
         name: "Fries",
         price: "₱100.00",
         image: imgFries
+    },
+    {
+        name: "Pepperoni Pizza",
+        price: "₱300.00",
+        image: imgPepperoniPizza
     }
 ]
 
 const content = document.getElementById("content");
 
 export function loadMenu() {
+        content.style.backgroundImage = `url(${bgCheckerboard})`;
+        content.style.backgroundRepeat = "repeat";
+        content.style.backgroundSize = "200px 420px"; // size of image + desired gap
+        content.style.backgroundPosition = "top right";
+
     const menuContainer = document.createElement("div");
     menuContainer.className = "menu-container";
 

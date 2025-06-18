@@ -91,8 +91,9 @@
 }
 
 .footer__background {
-    margin-top: 3.5rem;
+    margin-top: 4.2rem;
     height: 3rem;
 
     background-image: url("../assets/elements/blue-checkered-10x3.svg");
+    background-position: bottom center;
 }
