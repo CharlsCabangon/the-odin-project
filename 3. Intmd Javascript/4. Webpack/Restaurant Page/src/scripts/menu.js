@@ -1,25 +1,53 @@
-import imgChickenBurger from "../images/chicken-burger.png";
+import imgChickenburger from "../images/chicken-burger.png";
+import imgCheeseburger from "../images/cheeseburger.png";
+import imgFries from "../images/fries.png";
 
 import addIcon from "../assets/elements/add-icon.svg";
 
-export function loadMenu() {
-    const content = document.getElementById("content");
+const menuItems = [
+    {
+        name: "Chicken Burger",
+        price: "₱110.00",
+        image: imgChickenburger
+    },
+    {
+        name: "Cheeseburger",
+        price: "₱110.00",
+        image: imgCheeseburger
+    },
+    {
+        name: "Fries",
+        price: "₱100.00",
+        image: imgFries
+    }
+]
 
+const content = document.getElementById("content");
+
+export function loadMenu() {
     const menuContainer = document.createElement("div");
     menuContainer.className = "menu-container";
 
+    menuItems.forEach(item => {
+        menuContainer.appendChild(createMenu(item));
+    });
+
+    content.appendChild(menuContainer);
+};
+
+function createMenu({ name, price, image }) {
     // MENU CARD
     const menuCard = document.createElement("div")
     menuCard.className = "menu__card";
 
     // MENU CARD IMAGE
     const menuCardImage = document.createElement("div")
-    menuCardImage.className = "menu__card-image";
-    const chickenBurger = document.createElement("img");
-    chickenBurger.src = imgChickenBurger;
-    chickenBurger.className = "menu__image";
+    menuCardImage.className = "menu__card-img";
+    const img = document.createElement("img");
+    img.src = image;
+    img.className = "menu__image";
 
-    menuCardImage.appendChild(chickenBurger);
+    menuCardImage.appendChild(img);
     menuCard.appendChild(menuCardImage);
 
     // MENU CARD BODY
@@ -30,10 +58,10 @@ export function loadMenu() {
 
     const menuCardTitle = document.createElement("p");
     menuCardTitle.className = "menu__card-title";
-    menuCardTitle.textContent = "Chicken Burger";
+    menuCardTitle.textContent = name;
     const menuCardPrice =document.createElement("p");
     menuCardPrice.className = "menu__card-price";
-    menuCardPrice.textContent = "110.00";
+    menuCardPrice.textContent = price;
 
     menuCardText.appendChild(menuCardTitle);
     menuCardText.appendChild(menuCardPrice);
@@ -49,8 +77,5 @@ export function loadMenu() {
     menuCardBody.appendChild(menuCardAction);
     menuCard.appendChild(menuCardBody);
 
-    // final appends
-    menuContainer.appendChild(menuCard);
-    content.appendChild(menuContainer);
-
-};
+    return menuCard;
+}
