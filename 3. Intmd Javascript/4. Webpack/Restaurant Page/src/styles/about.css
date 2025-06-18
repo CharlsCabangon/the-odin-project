@@ -1,0 +1,15 @@
+.about-container {
+    height: 70vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-us {
+    
+    font-family: var(--font-brand);
+    font-size: 5rem;
+    font-weight: bold;
+    color: var(--color-primary);
+}

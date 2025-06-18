@@ -22,6 +22,9 @@ document.getElementById("btn-about").addEventListener("click", () => {
 });
 
 function reset() {
-    document.getElementById("content").innerHTML = '';
+    const content = document.getElementById("content");
+    
+    content.innerHTML = "";
+    content.style.backgroundImage = "none";
 }; 
 

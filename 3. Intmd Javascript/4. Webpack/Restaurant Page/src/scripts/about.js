@@ -1,11 +1,14 @@
 
 export function loadAbout() {
-    const container = document.getElementById("content");
+    const content = document.getElementById("content");
 
-    const div = document.createElement("div");
-    const para = document.createElement("p");
+    const aboutContainer = document.createElement("div");
+    aboutContainer.className = "about-container";
+    
+    const aboutUs = document.createElement("p");
+    aboutUs.textContent = "About us";
+    aboutUs.className = "about-us";
 
-    div.innerHTML = "ABOUT WHAT?!?!?!?!";
-
-    container.appendChild(div);
+    aboutContainer.appendChild(aboutUs);
+    content.appendChild(aboutContainer);
 };
