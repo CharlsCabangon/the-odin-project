@@ -59,8 +59,8 @@ main {
 .gif__container {
 
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
+  gap: 2rem;
   padding: 1rem;
-  justify-items: center; /* center images horizontally */
+  justify-items: center; 
   align-items: start;
 }

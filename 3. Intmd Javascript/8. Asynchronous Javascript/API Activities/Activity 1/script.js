@@ -1,7 +1,5 @@
 const apiKey = 'QSKIgohqchgLSzSl5qV76DnlCQPJ0obB';
 
-const img = document.querySelector('img');
-
 async function getSearch() {
   const input = document.getElementById('search-input');
   const container = document.getElementById('gif-container');
