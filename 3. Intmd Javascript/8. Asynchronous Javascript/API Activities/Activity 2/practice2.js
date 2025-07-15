@@ -20,6 +20,7 @@ async function loadJson(url) {
 
 async function demoGithubUser() {
   let user;
+  
   while(true) {
     let name = prompt("Enter a name?", "name");
 
