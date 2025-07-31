@@ -70,6 +70,7 @@ export class LinkedList {
       this.headNode = null;
       return;
     }
+
     let current = this.headNode;
 
     // This loop moves current forward until it reaches the second-to-last node.
@@ -115,7 +116,7 @@ export class LinkedList {
   }
 
    // Inserts a new node with value at the given index
-  insertAt(value, index) {
+  insertAt(index, value) {
     if (index === 0) {
       this.prepend(value);
       return;
