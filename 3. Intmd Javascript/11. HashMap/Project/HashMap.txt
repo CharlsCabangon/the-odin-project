@@ -1,0 +1,103 @@
+CLASS HashMap
+  INIT(capacity = 16, loadFactor = 0.75)
+    SET this.capacity TO capacity
+    SET this.loadFactor TO loadFactor
+    SET this.count TO 0
+    SET this.buckets TO array of size capacity, filled with empty arrays
+
+  METHOD hash(key)
+    IF key is not a string
+      THROW error: Only string keys allowed
+    SET hashCode TO 0
+    SET prime TO 31
+    FOR each character in key
+      SET hashCode TO (hashCode * prime + ASCII code of character) MOD this.capacity
+    RETURN hashCode
+
+  METHOD set(key, value)
+    IF key is not a string
+      THROW error: Only string keys allowed
+
+    IF (this.count + 1) / this.capacity > this.loadFactor
+      CALL resize()
+
+    SET index TO hash(key)
+    IF index is out of bounds (index < 0 OR index >= buckets.length)
+      THROW error
+
+    SET bucket TO this.buckets[index]
+
+    FOR each [storedKey, storedValue] in bucket
+      IF storedKey EQUALS key
+        UPDATE storedValue with value
+        RETURN
+
+    APPEND [key, value] to bucket
+    INCREMENT this.count
+
+  METHOD get(key)
+    SET index TO hash(key)
+    IF index is out of bounds
+      THROW error
+
+    SET bucket TO this.buckets[index]
+    FOR each [storedKey, storedValue] in bucket
+      IF storedKey EQUALS key
+        RETURN storedValue
+
+    RETURN null
+
+  METHOD has(key)
+    RETURN get(key) IS NOT null
+
+  METHOD remove(key)
+    SET index TO hash(key)
+    IF index is out of bounds
+      THROW error
+
+    SET bucket TO this.buckets[index]
+    FOR each item at i in bucket
+      IF item[0] EQUALS key
+        REMOVE item from bucket at index i
+        DECREMENT this.count
+        RETURN true
+
+    RETURN false
+
+  METHOD length()
+    RETURN this.count
+
+  METHOD clear()
+    REPLACE this.buckets with new array of size this.capacity, each bucket an empty array
+    SET this.count TO 0
+
+  METHOD resize()
+    STORE current buckets as oldBuckets
+    DOUBLE this.capacity
+    SET this.count TO 0
+    CREATE new empty buckets array with new capacity
+
+    FOR each bucket in oldBuckets
+      FOR each [key, value] in bucket
+        CALL set(key, value)
+
+  METHOD keys()
+    CREATE empty list called result
+    FOR each bucket in this.buckets
+      FOR each [key, value] in bucket
+        ADD key to result
+    RETURN result
+
+  METHOD values()
+    CREATE empty list called result
+    FOR each bucket in this.buckets
+      FOR each [key, value] in bucket
+        ADD value to result
+    RETURN result
+
+  METHOD entries()
+    CREATE empty list called result
+    FOR each bucket in this.buckets
+      FOR each pair in bucket
+        ADD pair to result
+    RETURN result
