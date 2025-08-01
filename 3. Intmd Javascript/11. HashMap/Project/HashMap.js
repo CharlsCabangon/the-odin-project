@@ -1,4 +1,4 @@
-class HashMap {
+export class HashMap {
   constructor(capacity = 16, loadFactor = 0.75) {
     this.capacity = capacity; // The number of buckets available
     this.loadFactor = loadFactor; // Determines when to resize
@@ -25,6 +25,10 @@ class HashMap {
     if (typeof key !== 'string') {
       throw new Error("Only string keys allowed");
     }
+
+    // if ((this.count + 1) / this.capacity > this.loadFactor) {
+    //   throw new Error("Capacity exceeded");
+    // }
 
     // Resize if loadFactor is exceeded
     if ((this.count + 1) / this.capacity > this.loadFactor) {
@@ -71,7 +75,7 @@ class HashMap {
   }
 
   has(key) {
-    return this.get(key) !== null; // Reuses get method
+    return this.get(key) !== null; // Reuses get method, returns true or false
   }
 
   remove(key) {
@@ -101,19 +105,6 @@ class HashMap {
   clear() {
     this.buckets = new Array(this.capacity).fill(null).map(() => []);
     this.count = 0;
-  }
-
-  resize() {
-    const oldBuckets = this.buckets;
-    this.capacity *= 2;
-    this.count = 0;
-    this.buckets = new Array(this.capacity).fill(null).map(() => []);
-
-    for (let bucket of oldBuckets) {
-      for (let [key, value] of bucket) {
-        this.set(key, value); // Re-hash all entries
-      }
-    }
   }
 
   keys() {
@@ -150,5 +141,18 @@ class HashMap {
     }
 
     return result;
+  }
+
+  resize() {
+    const oldBuckets = this.buckets;
+    this.capacity *= 2;
+    this.count = 0;
+    this.buckets = new Array(this.capacity).fill(null).map(() => []);
+
+    for (let bucket of oldBuckets) {
+      for (let [key, value] of bucket) {
+        this.set(key, value); // Re-hash all entries
+      }
+    }
   }
 }
