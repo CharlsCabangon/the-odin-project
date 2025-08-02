@@ -16,7 +16,6 @@ export class LinkedList {
       current = current.nextNode;
     }
     current.nextNode = newNode; // Point the last node to the new node
-
   }
 
   // Adds a node to the START of the list.
@@ -44,7 +43,9 @@ export class LinkedList {
   // Returns the last node in the list
   tail() {
     let current = this.headNode;
+
     if (!current) return null;
+    
     while (current.nextNode) {
       current = current.nextNode;
     }
