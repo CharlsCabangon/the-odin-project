@@ -49,11 +49,11 @@ export class LinkedList {
     return count;
   }
 
-  head() {
+  headNode() {
     return this.head;
   }
 
-  tail() {
+  tailNode() {
     return this.tail;
   }
 
