@@ -1,9 +1,11 @@
+import { LinkedList } from "./LinkedList";
+
 export class HashMap {
   constructor(capacity = 16, loadFactor = 0.75) {
     this.capacity = capacity; // The number of buckets available
     this.loadFactor = loadFactor; // Determines when to resize
     this.count = 0; // Number of actual key-value pairs
-    this.buckets = new Array(capacity).fill(null).map(() => []); // Array of buckets (each a separate array)
+    this.buckets = Array.from({ length: capacity }, () => new LinkedList());
   }
 
   hash(key) {

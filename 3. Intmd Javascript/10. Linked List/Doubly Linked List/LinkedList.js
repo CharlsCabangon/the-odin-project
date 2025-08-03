@@ -73,7 +73,7 @@ export class LinkedList {
   pop() {
     if (!this.tail) return null;
 
-    removed = this.tail;
+    const removed = this.tail;
 
     if (this.head === this.tail) {
       this.head = this.tail = null;
