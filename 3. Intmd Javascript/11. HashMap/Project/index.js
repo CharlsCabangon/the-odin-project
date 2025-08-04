@@ -1,4 +1,5 @@
 import { HashMap } from "./HashMap.js";
+import { HashSet } from "./HashSet.js";
 
 // Override _hash to force collisions (for testing only)
 class DebugHashMap extends HashMap {
@@ -33,3 +34,26 @@ for (const node of map.buckets[2]) {
 console.log(`\n${map.keys()}`);
 console.log(`\n${map.values()}`);
 console.log(`\n${map.entries()}`);
+
+const hashset = new HashSet();
+
+hashset.set("apple");
+hashset.set("orange");
+hashset.set("grapes");
+hashset.set("banana");
+hashset.set("watermelon");
+hashset.set("apple");
+hashset.set("apple");
+hashset.set("blueberry");
+
+
+console.log(hashset.has("blueberry"));
+console.log(hashset.get("blueberry"));
+console.log(hashset.entries());
+console.log(hashset.length())
+
+hashset.remove("banana");
+console.log(hashset.entries());
+
+hashset.clear();
+console.log(hashset.entries());

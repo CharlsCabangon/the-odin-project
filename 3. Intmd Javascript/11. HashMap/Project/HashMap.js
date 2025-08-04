@@ -9,9 +9,7 @@ export class HashMap {
   }
 
   _hash(key) {
-    if (typeof key !== 'string') {
-      throw new Error("Only string keys allowed"); // Key restriction
-    }
+    this._validateKey();
 
     let hashCode = 0;
     const prime = 31;
