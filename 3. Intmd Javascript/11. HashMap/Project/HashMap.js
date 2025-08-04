@@ -55,7 +55,7 @@ export class HashMap {
     const existingNode = bucket.find(key);
 
     if (existingNode) {
-      existingNode.value[1] = value;
+      existingNode.value = value;
     } else {
       bucket.append(key, value);
       this.count++;

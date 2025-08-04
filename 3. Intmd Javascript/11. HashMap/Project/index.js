@@ -1,33 +1,35 @@
 import { HashMap } from "./HashMap.js";
-import { LinkedList } from "./LinkedList.js";
 
-const hashmap = new HashMap();
+// Override _hash to force collisions (for testing only)
+class DebugHashMap extends HashMap {
+  _hash(key) {
+    // Force specific hash values for collision testing
+    if (key === 'ab' || key === 'ba') return 1;
+    if (key === 'cd' || key === 'dc') return 2;
+    return super._hash(key); // fallback
+  }
+}
 
-hashmap.set('apple', 'red');
-hashmap.set('banana', 'yellow');
-hashmap.set('carrot', 'orange');
-hashmap.set('dog', 'brown');
-hashmap.set('elephant', 'gray');
-hashmap.set('frog', 'green');
-hashmap.set('grape', 'purple');
-hashmap.set('hat', 'black');
-hashmap.set('ice cream', 'white');
-hashmap.set('jacket', 'blue');
-hashmap.set('kite', 'pink');
-hashmap.set('lion', 'golden');
-hashmap.set('sky', 'pink');
-hashmap.set('grass', 'green');
-hashmap.set('wine', 'burgundy');
-hashmap.set('moon', 'silver');
-hashmap.set('coin', 'bronze');
+const map = new DebugHashMap();
 
+// Insert keys that will collide
+map.set('ab', 1);
+map.set('ba', 2); // Same bucket as 'ab'
 
-console.log(hashmap.entries());
-console.log(hashmap.capacity);
-console.log(hashmap.size())
-console.log(hashmap.get("apple"));
-console.log(hashmap.has("sky"));
-console.log(hashmap.keys());
-console.log(hashmap.values())
+map.set('cd', 3);
+map.set('dc', 4); // Same bucket as 'cd'
 
-const list = new LinkedList();
+// Print entries from the colliding buckets
+console.log("Bucket 1:");
+for (const node of map.buckets[1]) {
+  console.log(`${node.key}: ${node.value}`);
+}
+
+console.log("\nBucket 2:");
+for (const node of map.buckets[2]) {
+  console.log(`${node.key}: ${node.value}`);
+}
+
+console.log(`\n${map.keys()}`);
+console.log(`\n${map.values()}`);
+console.log(`\n${map.entries()}`);
