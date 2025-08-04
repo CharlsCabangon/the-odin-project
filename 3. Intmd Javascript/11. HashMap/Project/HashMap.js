@@ -1,4 +1,4 @@
-import { LinkedList } from "./LinkedList";
+import { LinkedList } from "./LinkedList.js";
 
 export class HashMap {
   constructor(capacity = 16, loadFactor = 0.75) {
@@ -8,7 +8,7 @@ export class HashMap {
     this.buckets = Array.from({ length: capacity }, () => new LinkedList());
   }
 
-  hash(key) {
+  _hash(key) {
     if (typeof key !== 'string') {
       throw new Error("Only string keys allowed"); // Key restriction
     }
@@ -23,138 +23,112 @@ export class HashMap {
     return hashCode; // Final index for this key
   }
 
-  set(key, value) {
+  _validateKey(key) {
     if (typeof key !== 'string') {
       throw new Error("Only string keys allowed");
     }
+  }
 
-    // if ((this.count + 1) / this.capacity > this.loadFactor) {
-    //   throw new Error("Capacity exceeded");
-    // }
+  _resize() {
+    const oldBuckets = this.buckets;
+    this.capacity *= 2;
+    this.count = 0;
+    this.buckets = Array.from({ length: this.capacity }, () => new LinkedList());
+
+    for (let bucket of oldBuckets) {
+      for (const node of bucket) {
+        this.set(node.key, node.value); // Re-hash and insert all entries
+      }
+    }
+  }
+
+  set(key, value) {
+    this._validateKey(key);
 
     // Resize if loadFactor is exceeded
     if ((this.count + 1) / this.capacity > this.loadFactor) {
-      this.resize();
+      this._resize();
     }
 
-    const index = this.hash(key);
-
-    if (index < 0 || index >= this.buckets.length) {
-      throw new Error("Index out of bounds");
-    }
-
+    const index = this._hash(key);
     const bucket = this.buckets[index];
+    const existingNode = bucket.find(key);
 
-    for (let i = 0; i < bucket.length; i++) {
-      const [storedKey, _] = bucket[i];
-      if (storedKey === key) {
-        bucket[i][1] = value; // Update value if key exists
-        return;
-      }
+    if (existingNode) {
+      existingNode.value[1] = value;
+    } else {
+      bucket.append(key, value);
+      this.count++;
     }
-
-    bucket.push([key, value]); // Otherwise, insert new key-value
-    this.count++;
   }
 
   get(key) {
-    const index = this.hash(key);
+    this._validateKey(key);
 
-    if (index < 0 || index >= this.buckets.length) {
-      throw new Error("Index out of bounds");
-    }
+    const node = this.buckets[this._hash(key)].find(key);
 
-    const bucket = this.buckets[index];
-
-    for (let i = 0; i < bucket.length; i++) {
-      const [storedKey, storedValue] = bucket[i];
-      if (storedKey === key) {
-        return storedValue;
-      }
-    }
-
-    return null; // Key not found
+    return node ? node.value[1] : null;
   }
 
   has(key) {
+    this._validateKey(key);
+
     return this.get(key) !== null; // Reuses get method, returns true or false
   }
 
   remove(key) {
-    const index = this.hash(key);
+    this._validateKey(key);
 
-    if (index < 0 || index >= this.buckets.length) {
-      throw new Error("Index out of bounds");
-    }
+    const bucket = this.buckets[this._hash(key)];
+    const removed = bucket.remove(key);
 
-    const bucket = this.buckets[index];
+    if (removed) this.count--;
 
-    for (let i = 0; i < bucket.length; i++) {
-      if (bucket[i][0] === key) {
-        bucket.splice(i, 1); // Remove the item
-        this.count--;
-        return true;
-      }
-    }
-
-    return false; // Key not found
+    return removed;
   }
 
-  length() {
+  size() {
     return this.count;
   }
 
   clear() {
-    this.buckets = new Array(this.capacity).fill(null).map(() => []);
+    this.buckets = Array.from({ length: this.capacity }, () => new LinkedList());
     this.count = 0;
   }
 
   keys() {
-    const result = [];
+    const keys = [];
 
-    for (let bucket of this.buckets) {
-      for (let [key, _] of bucket) {
-        result.push(key);
+    for (const bucket of this.buckets) {
+      for (const node of bucket) {
+        keys.push(node.key);
       }
     }
 
-    return result;
+    return keys;
   }
 
   values() {
-    const result = [];
+    const values = [];
 
-    for (let bucket of this.buckets) {
-      for (let [_, value] of bucket) {
-        result.push(value);
+    for (const bucket of this.buckets) {
+      for (const node of bucket) {
+        values.push(node.value);
       }
     }
 
-    return result;
+    return values;
   }
 
   entries() {
-    const result = [];
+    const entries = [];
 
-    for (let bucket of this.buckets) {
-      for (let pair of bucket) {
-        result.push(pair);
+    for (const bucket of this.buckets) {
+      for (const node of bucket) {
+        entries.push([node.key, node.value]);
       }
     }
 
-    return result;
-  }
-
-  resize() {
-    const oldBuckets = this.buckets;
-    this.capacity *= 2;
-    this.count = 0;
-    this.buckets = new Array(this.capacity).fill(null).map(() => []);
-
-    for (let bucket of oldBuckets) {
-      for (let [key, value] of bucket) {
-        this.set(key, value); // Re-hash all entries
-      }
-    }
+    return entries;
   }
 }

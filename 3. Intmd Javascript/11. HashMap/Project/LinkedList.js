@@ -1,163 +1,67 @@
 export class Node {
-  constructor(value = null, next = null, prev = null) {
+  constructor(key, value) {
+    this.key = key;
     this.value = value;
-    this.next = next;
-    this.prev = prev;
+    this.next = null;
   }
 }
 
 export class LinkedList {
   constructor() {
     this.head = null;
-    this.tail = null;
   }
 
-  append(value) {
-    const newNode = new Node(value);
-
+  append(key, value) {
+    const newNode = new Node(key, value);
+    
     if (!this.head) {
-      this.head = this.tail = newNode;
+      this.head = newNode;
       return;
     }
 
-    this.tail.next = newNode;
-    newNode.prev = this.tail;
-    this.tail = newNode;
-  }
-
-  prepend(value) {
-    const newNode = new Node(value, this.head);
-
-    if (!this.head) {
-      this.head = this.tail = newNode;
-      return;
-    }
-    
-    this.head.prev = newNode;
-    this.head = newNode;
-  }
-
-  size() {
-    let count = 0;
     let current = this.head;
-
-    while (current) {
-      count++;
+    while (current.next !== null) {
       current = current.next;
     }
 
-    return count;
+    current.next = newNode;
   }
 
-  head() {
-    return this.head;
-  }
-
-  tail() {
-    return this.tail;
-  }
-
-  at(index) {
-    let count = 0;
+  find(key) {
     let current = this.head;
 
     while (current) {
-      if (count === index) return current;
-      count++;
-      current = current.next;
-    }
-
-    return null;
-  }
-
-  pop() {
-    if (!this.tail) return null;
-
-    removed = this.tail;
-
-    if (this.head === this.tail) {
-      this.head = this.tail = null;
-    }
-    else {
-      this.tail = removed.prev;
-      this.tail.next = null;
-    }
-
-    return removed;
-  }
-
-  contains(value) {
-    let current = this.head;
-    
-    while (current) {
-      if (current.value === value) return true;
-      current = current.next;
-    }
-
-    return false;
-  }
-
-  find(value) {
-    let current = this.head;
-    let index = 0;
-
-    while (current) {
-      if (current.value === value) return index;
-      index++;
+      if (current.key === key) return current;
       current = current.next;
     }
     return null;
   }
 
-  toString() {
-    let str = '';
+  remove(key) {
     let current = this.head;
+    let prev = null;
 
-    while(current) {
-      str += `( ${current.value} ) <—> `;
+    while (current) {
+      if (current.key === key) {
+        if (prev) {
+          prev.next = current.next; // Bypass the current node
+        } else {
+          this.head = current.next; // Node to remove is the head
+        }
+        return true;
+      }
+      prev = current;            // Move prev to current
+      current = current.next;    // Move current forward
+    }
+
+    return false; // key not found
+  }
+  
+  *[Symbol.iterator]() {
+    let current = this.head;
+    while (current) {
+      yield current;
       current = current.next;
-    }
-
-    str += 'null';
-    return str;
-  }
-
-  insertAt(index, value) {
-    if (index === 0) {
-      this.prepend(value);
-      return;
-    }
-
-    const prevNode = this.at(index - 1);
-    if (!prevNode) return;
-
-    const nextNode = prevNode.next;
-    const newNode = new Node(value, nextNode, prevNode);
-
-    prevNode.next = newNode;
-    if (nextNode) {
-      nextNode.prev = newNode;
-    } else {
-      this.tail = newNode; // new tail if inserted at end
-    }
-  }
-
-  removeAt(index) {
-    const node = this.at(index);
-    if (!node) return;
-
-    if (node === this.head) {
-      this.head = node.next;
-      if (this.head) this.head.prev = null;
-      if (node === this.tail) this.tail = null;
-    }
-    else if (node === this.tail) {
-      this.tail = node.prev;
-      this.tail.next = null;
-    }
-    else {
-      node.prev.next = node.next;
-      node.next.prev = node.prev;
     }
   }
 }
