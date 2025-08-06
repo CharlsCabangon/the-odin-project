@@ -17,6 +17,16 @@ export const GameBoard = (function() {
         board = ["", "", "", "", "", "", "", "", ""];
     };
 
+    const display = () => {
+        console.log(`
+            ${board[0] || 0} | ${board[1] || 1} | ${board[2] || 2}
+            ---+---+---
+            ${board[3] || 3} | ${board[4] || 4} | ${board[5] || 5}
+            ---+---+---
+            ${board[6] || 6} | ${board[7] || 7} | ${board[8] || 8}
+            `)
+    };
+    
     return { // Expose public functions.
         getBoard,
         updateCell,
