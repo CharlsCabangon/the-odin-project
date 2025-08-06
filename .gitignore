@@ -1,9 +1,12 @@
+<<<<<<< HEAD
 # Directories
 .vscode/
 UI Components/
 assets/
 images/
 
+=======
+>>>>>>> 39fb86c (Stop tracking UI Components)
 # Logs
 logs
 *.log
