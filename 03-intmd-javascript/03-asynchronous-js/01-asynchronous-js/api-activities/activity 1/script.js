@@ -1,4 +1,4 @@
-const apiKey = 'QSKIgohqchgLSzSl5qV76DnlCQPJ0obB';
+const apiKey = process.env.GIPHY_API_KEY;
 
 async function getSearch() {
   const input = document.getElementById('search-input');
