@@ -30,20 +30,22 @@ function buildTree(array) {
 export function Tree(array) {
   let root = buildTree(array);
 
-  function insert(value, node = root) {
-    if (node === null) return Node(value);
-    if (value < node.data) node.left = insert(value, node.left);
-    else if (value > node.data) node.right = insert(value, node.right);
-    return node;
+  function getRoot() {
+    return root;
   }
 
-  function findMin(node) {
-    while (node.left) node = node.left;
+  function insert(value, node = root) {
+    if (node === null) return Node(value);
+
+    if (value < node.data) node.left = insert(value, node.left);
+    else if (value > node.data) node.right = insert(value, node.right);
+
     return node;
   }
 
   function deleteItem(value, node = root) {
     if (node === null) return null;
+
     if (value < node.data) node.left = deleteItem(value, node.left);
     else if (value > node.data) node.right = deleteItem(value, node.right);
     else {
@@ -52,20 +54,24 @@ export function Tree(array) {
       if (!node.right) return node.left;
       const minLargerNode = findMin(node.right);
       node.data = minLargerNode.data;
-      node.right = deleteItem(minLargerNode.data, node.right);
+      node.right = deleteItem(minLargerNode.data, node.right); 
     }
+
     return node;
   }
 
   function find(value, node = root) {
     if (node === null) return null;
     if (value === node.data) return node;
+
     return value < node.data ? find(value, node.left) : find(value, node.right);
   }
 
   function levelOrderForEach(callback) {
-    if (typeof callback !== 'function') throw new Error("Callback required");
-    const queue = [root];
+    requireCallback(callback);
+
+    const queue = [root]; // closure
+
     while (queue.length) {
       const node = queue.shift();
       callback(node);
@@ -75,24 +81,30 @@ export function Tree(array) {
   }
 
   function inOrderForEach(callback, node = root) {
-    if (typeof callback !== 'function') throw new Error("Callback required");
+    requireCallback(callback);
+
     if (!node) return;
+
     inOrderForEach(callback, node.left);
     callback(node);
     inOrderForEach(callback, node.right);
   }
 
   function preOrderForEach(callback, node = root) {
-    if (typeof callback !== 'function') throw new Error("Callback required");
+    requireCallback(callback);
+
     if (!node) return;
+
     callback(node);
     preOrderForEach(callback, node.left);
     preOrderForEach(callback, node.right);
   }
 
   function postOrderForEach(callback, node = root) {
-    if (typeof callback !== 'function') throw new Error("Callback required");
+    requireCallback(callback);
+
     if (!node) return;
+
     postOrderForEach(callback, node.left);
     postOrderForEach(callback, node.right);
     callback(node);
@@ -134,13 +146,19 @@ export function Tree(array) {
     root = buildTree(values);
   }
 
-  function getRoot() {
-    return root;
+  function requireCallback(callback) {
+    if (typeof callback !== 'function') throw new Error("Callback required");
+  }
+
+  function findMin(node = root) {
+    while (node.left) node = node.left;
+    return node;
   }
 
   return {
     insert: val => (root = insert(val)),
-    delete: val => (root = deleteItem(val)),
+    deleteItem: val => (root = deleteItem(val)),
+    getRoot,
     find,
     height,
     depth,
@@ -150,7 +168,7 @@ export function Tree(array) {
     inOrderForEach,
     preOrderForEach,
     postOrderForEach,
-    getRoot
+    findMin,
   }
 }
 

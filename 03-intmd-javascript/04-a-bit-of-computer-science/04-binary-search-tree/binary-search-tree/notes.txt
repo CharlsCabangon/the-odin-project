@@ -1,0 +1,43 @@
+root looks like this internally. it's a nested object
+
+{
+  data: 8,
+  left: {
+    data: 4,
+    left: {
+      data: 3,
+      left: {
+        data: 1,
+        left: null,
+        right: null
+      },
+      right: null
+    },
+    right: {
+      data: 5,
+      left: null,
+      right: null
+    }
+  },
+  right: {
+    data: 67,
+    left: {
+      data: 23,
+      left: {
+        data: 9,
+        left: null,
+        right: null
+      },
+      right: null
+    },
+    right: {
+      data: 6345,
+      left: {
+        data: 324,
+        left: null,
+        right: null
+      },
+      right: null
+    }
+  }
+}
