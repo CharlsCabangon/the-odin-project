@@ -146,28 +146,29 @@ export function Tree(array) {
     root = buildTree(values);
   }
 
+  function findMin(node = root) {
+    while (node.left) node = node.left;
+    return node;
+
   function requireCallback(callback) {
     if (typeof callback !== 'function') throw new Error("Callback required");
   }
 
-  function findMin(node = root) {
-    while (node.left) node = node.left;
-    return node;
   }
 
   return {
+    getRoot,
     insert: val => (root = insert(val)),
     deleteItem: val => (root = deleteItem(val)),
-    getRoot,
     find,
     height,
     depth,
-    isBalanced,
-    rebalance,
     levelOrderForEach,
     inOrderForEach,
     preOrderForEach,
     postOrderForEach,
+    isBalanced,
+    rebalance,
     findMin,
   }
 }
