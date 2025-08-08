@@ -5,39 +5,43 @@ root looks like this internally. it's a nested object
   left: {
     data: 4,
     left: {
-      data: 3,
-      left: {
-        data: 1,
+      data: 1,
+      left: null,
+      right: {
+        data: 3,
         left: null,
         right: null
-      },
-      right: null
+      }
     },
     right: {
       data: 5,
       left: null,
-      right: null
+      right: {
+        data: 7,
+        left: null,
+        right: null
+      }
     }
   },
   right: {
     data: 67,
     left: {
-      data: 23,
-      left: {
-        data: 9,
+      data: 9,
+      left: null,
+      right: {
+        data: 23,
         left: null,
         right: null
-      },
-      right: null
+      }
     },
     right: {
-      data: 6345,
-      left: {
-        data: 324,
+      data: 324,
+      left: null,
+      right: {
+        data: 6345,
         left: null,
         right: null
-      },
-      right: null
+      }
     }
   }
 }
