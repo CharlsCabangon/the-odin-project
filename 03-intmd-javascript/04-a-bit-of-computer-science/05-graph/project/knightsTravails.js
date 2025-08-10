@@ -10,11 +10,11 @@ const KNIGHT_OFFSETS = [
 ];
 
 function posToKey([x, y]) {
-  return `${x},${y}`;
+  return `${x},${y}`; // [3, 5] → "3,5"
 }
 
 function keyToPos(key) {
-  return key.split(',').map(Number);
+  return key.split(',').map(Number);  // "3,5" → ["3", "5"] → [3, 5]
 }
 
 function isValidPos([x, y]) {
