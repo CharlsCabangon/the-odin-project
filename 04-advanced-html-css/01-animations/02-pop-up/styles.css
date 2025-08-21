@@ -14,9 +14,40 @@ body {
   align-items: center;
 }
 
+#btn-open,
+#btn-close {
+  padding: 0.8rem 2rem;
+
+  background-color: #5a75ff;
+  border: none;
+  border-radius: 0.7rem;
+
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+#btn-open:hover,
+#btn-close:hover {
+  background-color: #4a65e0;
+}
+
+h1 {
+  color: #4a65e0;
+  margin-bottom: 0;
+}
+
+p {
+  margin-bottom: 2.5rem;
+}
+
 dialog {
   border: none;
   border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(90,117,255,0.12);
 
   opacity: 0;
   transform: translateY(-60px) scale(0.98);
@@ -33,12 +64,6 @@ dialog.show {
 }
 
 dialog[open] {
-  /* opacity: 1;
-  transform: translateY(0) scale(1);
-  transition:
-    opacity 0.3s cubic-bezier(0.4,0,1,1),
-    transform 0.3s cubic-bezier(0.4,0,1,1); */
-
   pointer-events: auto;
 }
 
