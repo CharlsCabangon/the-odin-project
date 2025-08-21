@@ -1,0 +1,52 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  font-family: sans-serif;
+}
+
+.container {
+  height: 50vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+dialog {
+  border: none;
+  border-radius: 1rem;
+
+  opacity: 0;
+  transform: translateY(-60px) scale(0.98);
+  transition:
+    opacity 0.4s cubic-bezier(0,0,0.2,1),
+    transform 0.4s cubic-bezier(0,0,0.2,1);
+
+  pointer-events: none;
+}
+
+dialog.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+dialog[open] {
+  /* opacity: 1;
+  transform: translateY(0) scale(1);
+  transition:
+    opacity 0.3s cubic-bezier(0.4,0,1,1),
+    transform 0.3s cubic-bezier(0.4,0,1,1); */
+
+  pointer-events: auto;
+}
+
+.dialog-content {
+  width: 15rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
