@@ -1,0 +1,35 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.container {
+  height: 50vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+button {
+  padding: 1rem 2rem;
+
+  color: white;
+  font-weight: 600;
+
+  background-color: rgb(62, 138, 245);
+  border: none;
+  border-radius: 0.5rem;
+
+  transition: transform 0.2s ease-in 0s;
+
+  user-select: none;
+}
+
+button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
