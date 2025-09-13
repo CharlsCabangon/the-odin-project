@@ -31,3 +31,40 @@ export function Count() {
 
   return <h1>{count}</h1>;
 }
+
+export function Name() {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+
+  function handleFirstName(e) {
+    setFirstName(e.target.value);
+  }
+
+  function handlelastName(e) {
+    setLastName(e.target.value);
+  }
+
+  const fullName = firstName + ' ' + lastName;
+
+  return (
+    <>
+      <Input label="First name: " value={firstName} onChange={handleFirstName} />
+      <Input label="Last name: " value={lastName} onChange={handlelastName}/>
+      <h1>{fullName}</h1>
+    </>
+  )
+}
+
+function Input({ label, value, onChange }) {
+
+  return (
+    <label>
+      {label}
+      {''}
+      <input
+        value={value}
+        onChange={onChange}
+      />
+    </label>
+  )
+}
